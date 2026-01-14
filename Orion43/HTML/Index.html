@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orion 43 - Page d'accueil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="images/ImageSite/logo/Orion.png" alt="Orion 43 Logo">
+            </a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">Accueil</a></li>
+                <li><a href="#" class="nav-link">Actualités</a></li>
+                <li><a href="#" class="nav-link">Nos activités</a></li>
+                <li><a href="#" class="nav-link">Nos photos</a></li>
+                <li><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <canvas id="space"></canvas>
+</body>
+
+<script type="module" src="ThreeJS/EtoileFond.js"></script>
+<script>
+    // Menu hamburger
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
+
+    // Fermer le menu au clic sur un lien
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+</script>
+</html>
