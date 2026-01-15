@@ -1,0 +1,307 @@
+:root {
+    --base: clamp(14px, 3vw, 18px);
+    --h1: clamp(28px, 5vw, 48px);
+    --h2: clamp(20px, 3vw, 32px);
+    --h3: clamp(16px, 2.5vw, 24px);
+    --h4: clamp(14px, 2vw, 20px);
+}
+
+body {
+    font-size: var(--base);
+    line-height: 1.6;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+/* -------------------- GLOBAL -------------------- */
+.SG {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: clamp(16px, 3vw, 30px) clamp(40px, 10vw, 100px);
+    box-sizing: border-box;
+}
+
+/* -------------------- HEADER -------------------- */
+.header-img.SG {
+    background-color: #05060a;
+    background-image: url("../Imagesactivités/fond\ arrière\ plan.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: clamp(200px, 40vw, 320px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.header-img.SG::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.35));
+    z-index: 0;
+}
+
+.header-img.SG h1 {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    margin: 0;
+    font-size: var(--h1);
+    text-shadow: 0 0 10px black;
+}
+
+/* -------------------- INTRO -------------------- */
+.intro.SG {
+    padding: 50px 50px;
+}
+
+/* -------------------- RESERVATION (FORM + IMAGE) -------------------- */
+.reservation.SG {
+    display: flex;
+    gap: 30px;
+    padding: 50px 50px;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 400px;
+}
+
+.form-container.SG {
+    flex: 1 1 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form-container.SG h2 {
+    margin-left: 0;
+    margin-bottom: 24px;
+    font-size: var(--h2);
+}
+
+.form-SG {
+    width: 100%;
+    margin: 0;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: rgba(255,255,255,0.01);
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid rgba(245,252,20,0.1);
+}
+
+.form-SG label {
+    display: block;
+    font-size: 0.95rem;
+    color: #e8e8e8;
+    font-weight: 500;
+}
+
+.form-SG input,
+.form-SG select {
+    width: 100%;
+    padding: 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(245,252,20,0.2);
+    border-radius: 6px;
+    color: #fff;
+    margin-top: 6px;
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+    font-size: inherit;
+}
+
+.form-SG input::placeholder {
+    color: rgba(255,255,255,0.4);
+}
+
+.form-SG input:focus,
+.form-SG select:focus {
+    outline: none;
+    background: rgba(255,255,255,0.1);
+    border-color: #f5fc14;
+    box-shadow: 0 0 12px rgba(245,252,20,0.15);
+}
+
+.form-SG .btn-primary,
+.btn-primary {
+    padding: 14px 24px;
+    background: #f5fc14;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-weight: 700;
+    border-radius: 6px;
+    margin-top: 10px;
+    transition: all 0.25s ease;
+    font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(245,252,20,0.25);
+}
+
+.form-SG .btn-primary:hover,
+.btn-primary:hover {
+    background: #f5fc14;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(245,252,20,0.35);
+}
+
+.img-container.SG {
+    flex: 1 1 48%;
+    display: flex;
+    height: 100%;
+    align-items: stretch;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.img-container.SG img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    transition: transform 0.4s ease;
+}
+
+.img-container.SG img:hover {
+    transform: scale(1.03);
+}
+
+.tarifs {
+    background: linear-gradient(135deg, rgba(245,252,20,0.08) 0%, rgba(245,252,20,0.04) 100%);
+    border-left: 4px solid #f5fc14;
+    padding: 18px 20px;
+    margin: 18px 0 26px 0;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(245,252,20,0.1);
+}
+
+/* -------------------- DESCRIPTION -------------------- */
+.description.SG {
+    padding: 50px 50px;
+}
+
+.description.SG p {
+    margin-bottom: 20px;
+}
+
+/* -------------------- GALERIE -------------------- */
+.galerie.SG {
+    display: flex;
+    justify-content: center;
+    gap: clamp(20px, 3vw, 40px);
+    padding: clamp(30px, 4vw, 40px) 0;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.carte.SG {
+    flex: 0 0 calc(33.333% - clamp(20px, 3vw, 40px));
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.carte.SG:hover {
+    box-shadow: 0 10px 30px rgba(245,252,20,0.15);
+    transform: translateY(-4px);
+}
+
+.carte.SG img {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 16/9;
+    min-height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+}
+
+.carte.SG img:hover {
+    transform: scale(1.05);
+}
+
+.carte.SG h3 {
+    margin-top: 16px;
+    margin-bottom: 0;
+    font-size: var(--h3);
+    font-weight: bold;
+    color: #f5f5f5;
+}
+
+/* -------------------- CONFERENCES -------------------- */
+.conference.SG {
+    padding: 50px 50px;
+    line-height: 1.6;
+}
+
+.conference.SG h4 {
+    font-size: var(--h4);
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 900px) {
+    .SG {
+        padding: clamp(12px, 2vw, 24px) clamp(30px, 5vw, 60px);
+    }
+    body {
+        font-size: clamp(13px, 2.5vw, 16px);
+    }
+    .reservation.SG {
+        flex-direction: column;
+        gap: 30px;
+        padding: clamp(12px, 2vw, 24px) clamp(30px, 5vw, 60px);
+    }
+    .form-container.SG, .img-container.SG {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .SG {
+        padding: clamp(12px, 2vw, 24px) clamp(25px, 5vw, 50px);
+    }
+    .reservation.SG {
+        gap: 16px;
+        padding: clamp(12px, 2vw, 24px) clamp(25px, 5vw, 50px);
+    }
+    .galerie.SG {
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(16px, 2vw, 30px);
+    }
+    .carte.SG {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .SG {
+        padding: clamp(10px, 2vw, 16px) clamp(24px, 6vw, 40px);
+    }
+    body {
+        font-size: clamp(12px, 3vw, 15px);
+    }
+    .intro.SG, .description.SG, .conference.SG, .reservation.SG {
+        padding: clamp(10px, 2vw, 16px) clamp(24px, 6vw, 40px);
+    }
+    .galerie.SG {
+        gap: 20px;
+        padding: clamp(10px, 2vw, 16px) clamp(24px, 6vw, 40px);
+    }
+}
