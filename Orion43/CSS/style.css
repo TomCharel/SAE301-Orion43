@@ -9,6 +9,18 @@ html, body {
     }
 
     :root {
+    --base: clamp(14px, 2vw, 18px);
+    --h1: clamp(28px, 5vw, 48px);
+    --h2: clamp(20px, 3vw, 32px);
+    --h3: clamp(16px, 2.5vw, 24px);
+    --h4: clamp(14px, 2vw, 20px);
+}
+
+  body {
+      font-size: var(--base);
+  }
+
+    :root {
       /* hauteur approximative de la nav fixe pour d搂caler le contenu */
       --nav-height-desktop: 130px;
       --nav-height-mobile: 90px;
@@ -61,7 +73,7 @@ html, body {
     .nav-link {
       color: #fff;
       text-decoration: none;
-      font-size: 16px;
+      font-size: var(--base);
       font-weight: 800;      
       transition: color 0.3s ease;
       padding: 8px 12px;
@@ -99,6 +111,12 @@ html, body {
 
     .hamburger.active span:nth-child(3) {
       transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    h1{
+      color: white;
+      font-size: var(--h1);
+      text-align: center;
     }
 
     /* Responsive */
@@ -173,7 +191,7 @@ html, body {
       .nav-link {
         display: block;
         padding: 15px 30px;
-        font-size: 24px;
+        font-size: var(--h3);
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 2px;
@@ -194,9 +212,6 @@ html, body {
         height: 35px;
       }
 
-      .nav-link {
-        font-size: 13px;
-      }
     }
 
     /* Canvas pour l'arrière plan dynamique en Three.js */
@@ -207,7 +222,7 @@ html, body {
       pointer-events: none;
     }
 
-    /* Footer */
+    /*------------------ Footer------------------- */
     .footer {
       background: transparent;
       backdrop-filter: blur(2px);
@@ -254,7 +269,7 @@ html, body {
     .footer-nav a {
       color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
-      font-size: 16px;
+      font-size: var(--base);
       font-weight: 400;
       transition: color 0.3s ease;
     }
@@ -447,3 +462,5 @@ html, body {
         height: 22px;
       }
     }
+
+ 
