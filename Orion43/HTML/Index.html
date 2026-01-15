@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion 43 - Page d'accueil</title>
     <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/styleAccueil.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -29,6 +30,160 @@
     </nav>
 
     <canvas id="space"></canvas>
+
+    <header class="header-img SG">
+        <H1 class="herotitle">Bienvenue chez Orion 43</H1>
+    </header>
+
+    <!-- Section À propos de nous -->
+    <section class="about-section">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>À propos de nous :</h2>
+                <p>
+                    Nous sommes Orion Astronomie du Velay et on est un groupe d'astronomes amateurs ouvert à tous et toutes. 
+                    Notre association propose des moments d'échange et de partage sur l'actualité astronomique et astronautique 
+                    pour les plus intéressés et curieux. Lors de nos réunions mensuelles, les participants découvrent le ciel du mois, 
+                    le Soleil, les planètes, les constellations ainsi que les objets à observer et à photographier. Nous proposons 
+                    aussi de nombreux ateliers de formation :
+                </p>
+                <ul>
+                    <li>Atelier Étoiles</li>
+                    <li>Atelier Soleil</li>
+                    <li>Atelier Lune</li>
+                    <li>Atelier Connaissance du Ciel et des Instruments</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="../Image/imageAccueil/APropos.jpg" alt="Groupe Orion 43">
+            </div>
+        </div>
+        <!-- Texte additionnel en dessous -->
+        <div class="about-bottom-content">
+                <p>
+                    Nous proposons également des observations aux instruments et des animations ouvertes à tous. Nous avons aussi 
+                    des activités telles que la photographie astronomique, la spectroscopie, des conférences grand public et des 
+                    explications du ciel en toute saison.
+                </p>
+                <p>
+                    Nous participons à de nombreuses manifestations régionales et nationales ainsi qu'à des sorties et rencontres : 
+                    Rencontres astronomiques de Printemps, visites de planétariums, Rencontres du ciel et de l'Espace et rencontres 
+                    spatiales préférées.
+                </p>
+        </div>
+    </section>
+
+    <!-- Section L'Observatoire -->
+    <section class="observatory-section">
+        <div class="observatory-container">
+            <div class="observatory-image">
+                <img src="../Image/imageAccueil/Observatoire.jpg" alt="L'Observatoire">
+            </div>
+            <div class="observatory-content">
+                <h2>L'Observatoire</h2>
+                <p>
+                    Le site comprend deux coupoles astronomiques, la première abritant un télescope de 400 mm. Une esplanade 
+                    dotée de plots en béton permet d'accueillir divers instruments d'observation. Un espace appelé "salle 
+                    chauffée" est réservé à l'observation du ciel à l'œil nu.
+                </p>
+                <p>
+                    La mairie de Saint-Julien-Chapteuil met également à disposition des locaux chauffés qui servent aux réunions, 
+                    aux conférences et offrent un refuge lors des observations par temps froid.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Nos dernières actualités -->
+    <!-- NOTE: Les éléments de cette section seront implémentés via la base de données -->
+    <section class="actualites-section">
+        <h2>Nos dernières actualités</h2>
+        <div class="actualites-grid">
+            <!-- Les cartes d'actualités seront générées depuis la base de données -->
+            <article class="actualite-card">
+                <div class="actualite-image">
+                    <img src="../Image/imageAccueil/APropos.jpg" alt="Aurores polaires">
+                </div>
+                <div class="actualite-content">
+                    <h3>Aurores polaires</h3>
+                    <p class="actualite-date">2025</p>
+                    <p class="actualite-description">
+                        Un ciel du 11 au 12 novembre nous a réservé une belle surprise malgré un ciel partiellement couvert. Nous avons réussi à capturer une superbe aurore boréale.
+                    </p>
+                    <a href="#" class="read-more">En savoir plus <span>›</span></a>
+                </div>
+            </article>
+
+            <article class="actualite-card">
+                <div class="actualite-image">
+                    <img src="../Image/imageAccueil/APropos.jpg" alt="Comète C/2025 A6">
+                </div>
+                <div class="actualite-content">
+                    <h3>Comète C/2025 A6 (Lemmon)</h3>
+                    <p class="actualite-date">2025</p>
+                    <p class="actualite-description">
+                        Voici deux magnifiques images de cette comète, capturées par Bernard au cours du mois d'octobre, lorsqu'elle était observable avec des jumelles ou un télescope.
+                    </p>
+                    <a href="#" class="read-more">En savoir plus <span>›</span></a>
+                </div>
+            </article>
+
+            <article class="actualite-card">
+                <div class="actualite-image">
+                    <img src="../Image/imageAccueil/APropos.jpg" alt="Nouveau président">
+                </div>
+                <div class="actualite-content">
+                    <h3>Nouveau président</h3>
+                    <p class="actualite-date">2025</p>
+                    <p class="actualite-description">
+                        C'est avec plaisir que nous vous annonçons l'élection de Daniel Vincent à la présidence de notre Club lors de la dernière assemblée générale. Une nouvelle étape pour notre projet commun !
+                    </p>
+                    <a href="#" class="read-more">En savoir plus <span>›</span></a>
+                </div>
+            </article>
+        </div>
+        <div class="actualites-footer">
+            <a href="Actualites.html" class="view-all-btn">Voir plus</a>
+        </div>
+    </section>
+
+    <!-- Section Réservation -->
+    <section class="reservation-section">
+        <div class="reservation-container">
+            <div class="reservation-content">
+                <h2>Réserver votre place pour les observations publiques</h2>
+                <form class="form-SG" aria-label="Formulaire de réservation">
+                    <label>Nom
+                        <input type="text" name="nom" placeholder="Votre nom" required>
+                    </label>
+                    <label>Email
+                        <input type="email" name="email" placeholder="votre@exemple.com" required>
+                    </label>
+                    <label>Date
+                        <input type="date" name="date" required>
+                    </label>
+                    <label>Thème
+                        <select name="theme" required>
+                            <option value="">Choisir un thème</option> 
+                            <option value="observation">Observation du ciel</option>
+                            <option value="atelier">Atelier / Conférence</option>
+                        </select>
+                    </label>
+                    <button type="submit" class="btn-primary">Réserver</button>
+                    <div class="form-note">Vous recevrez une confirmation par email.</div>
+                </form>
+            </div>
+
+            <div class="reservation-image">
+                <img src="../Image/imageAccueil/APropos.jpg" alt="Observatoire">
+            </div>
+        </div>
+    </section>
+
+     <!-- bandeau déroulant automatique des partenaires du site d'astronomie -->
+        <section class="partenaires-section">
+            <h2>Nos Partenaires</h2>
+        </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -60,7 +215,6 @@
                 </a>
             </div>
         </div>
-
 
         <!-- Deuxième ligne du footer -->
         <div class="footer-bottom">

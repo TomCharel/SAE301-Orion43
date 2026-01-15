@@ -1,0 +1,438 @@
+   /* -------------------- HEADER -------------------- */
+.header-img.SG {
+    /* background-image: url("../Image/imageAccueil/APropos.jpg"); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: clamp(200px, 40vw, 320px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.header-img.SG::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.header-img.SG h1 {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    margin: 0;
+    font-size: var(--h1);
+}
+
+   
+   
+   /* Classe commune pour toutes les sections principales */
+    .about-section,
+    .observatory-section,
+    .actualites-section {
+      position: relative;
+      z-index: 10;
+      padding: 20px 20px;
+      max-width: 1200px;
+      margin: 0 auto 60px auto;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+    }
+
+    .about-section {
+      margin-top: 60px;
+    }
+
+    .about-container,
+    .observatory-container {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .about-content,
+    .observatory-content {
+      flex: 0.8;
+    }
+
+    /* Style global pour tous les h2 */
+    h2 {
+      font-size: var(--h2);
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: #fff;
+      border-bottom: 3px solid #f5fc14;
+      padding-bottom: 10px;
+      display: inline-block;
+    }
+
+    .about-content p,
+    .observatory-content p {
+      font-size: var(--base);
+      margin-bottom: 20px;
+      color: #e0e0e0;
+    }
+
+    .about-content ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 20px 0;
+    }
+
+    .about-content ul li {
+      font-size: var(--base);
+      line-height: 1.8;
+      color: #e0e0e0;
+      padding-left: 25px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .about-content ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #f5fc14;
+      font-size: 20px;
+    }
+
+    .about-image,
+    .observatory-image {
+      flex: 1;
+      width: auto;
+    }
+
+    .about-image img,
+    .observatory-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    /* Texte additionnel dans la section */
+    .about-bottom-content {
+      margin-top: 40px;
+      padding: 0 50px;
+    }
+
+    .about-bottom-content p {
+      font-size: var(--base);
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: #e0e0e0;
+    }
+
+    .about-bottom-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .about-section,
+      .observatory-section {
+        padding: 40px 20px;
+      }
+
+      .about-container,
+      .observatory-container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px;
+      }
+
+      .observatory-container {
+        flex-direction: column;
+      }
+
+      .about-image,
+      .observatory-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+
+    /* Section Nos dernières actualités */
+    .actualites-section h2 {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 60px;
+    }
+
+    .actualites-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .actualite-card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .actualite-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .actualite-image {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      border-radius: 15px;
+      margin-bottom: 25px;
+    }
+
+    .actualite-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .actualite-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .actualite-card h3 {
+      font-size: var(--h3);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .actualite-date {
+      font-size: var(--base);
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 15px;
+      font-weight: 500;
+    }
+
+    .actualite-description {
+      font-size: var(--base);
+      line-height: 1.6;
+      color: #e0e0e0;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .read-more {
+      color: #f5fc14;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: var(--base);
+      transition: color 0.3s ease;
+      align-self: flex-start;
+    }
+
+    .read-more:hover {
+      color: #fff;
+    }
+
+    .read-more span {
+      margin-left: 5px;
+    }
+
+    .actualites-footer {
+      display: flex;
+      justify-content: center;
+    }
+
+    .view-all-btn {
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      padding: 12px 40px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: var(--base);
+      transition: all 0.3s ease;
+    }
+
+    .view-all-btn:hover {
+      border-color: #f5fc14;
+      color: #f5fc14;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .actualites-section {
+        padding: 40px 20px;
+      }
+
+      .actualites-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .actualites-section h2 {
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .actualites-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .actualite-image {
+        height: 200px;
+      }
+
+      .actualites-section h2 {
+        font-size: var(--h2);
+      }
+    }
+
+    /* -------------------- SECTION PARTENAIRES -------------------- */
+    .partenaires-section {
+      position: relative;
+      z-index: 10;
+      padding: 40px 40px;
+      max-width: 1200px;
+      margin: 0 auto 60px auto;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+    }
+
+    .partenaires-section h2 {
+      text-align: center;
+      width: 100%;
+    }
+
+    @media (max-width: 968px) {
+      .partenaires-section {
+        padding: 40px 20px;
+      }
+    }
+
+    /* -------------------- SECTION RESERVATION -------------------- */
+    .reservation-section {
+      position: relative;
+      z-index: 10;
+      padding: 40px 40px;
+      max-width: 1200px;
+      margin: 0 auto 60px auto;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+    }
+
+    .reservation-container {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .reservation-content {
+      flex: 0.8;
+    }
+
+    .reservation-image {
+      flex: 1;
+      width: auto;
+    }
+
+    .reservation-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+
+    /* Formulaire */
+    .form-SG {
+      width: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-SG label {
+      display: block;
+      font-size: var(--base);
+      color: #e8e8e8;
+      font-weight: 500;
+    }
+
+    .form-SG input,
+    .form-SG select {
+      width: 100%;
+      padding: 14px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(245,252,20,0.2);
+      border-radius: 6px;
+      color: #fff;
+      margin-top: 6px;
+      box-sizing: border-box;
+      transition: all 0.25s ease;
+      font-size: var(--base);
+    }
+
+    .form-SG input::placeholder {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .form-SG input:focus,
+    .form-SG select:focus {
+      outline: none;
+      background: rgba(255,255,255,0.1);
+      border-color: #f5fc14;
+      box-shadow: 0 0 12px rgba(245,252,20,0.15);
+    }
+
+    .form-SG .btn-primary {
+      padding: 14px 24px;
+      background: #f5fc14;
+      border: none;
+      color: #000;
+      cursor: pointer;
+      font-weight: 700;
+      border-radius: 6px;
+      margin-top: 10px;
+      transition: all 0.25s ease;
+      font-size: var(--base);
+      box-shadow: 0 4px 12px rgba(245,252,20,0.25);
+    }
+
+    .form-SG .btn-primary:hover {
+      background: #f5fc14;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(245,252,20,0.35);
+    }
+
+    .form-note {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+      font-style: italic;
+      margin-top: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 968px) {
+      .reservation-section {
+        padding: 40px 20px;
+      }
+
+      .reservation-container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px;
+      }
+
+      .reservation-image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 400px;
+      }
+    }
