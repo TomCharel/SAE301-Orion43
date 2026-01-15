@@ -65,8 +65,8 @@ body {
     gap: 30px;
     padding: 50px 50px;
     justify-content: space-between;
-    align-items: flex-start;
-    min-height: 400px;
+    align-items: stretch;
+    min-height: auto;
 }
 
 .form-container.SG {
@@ -87,7 +87,7 @@ body {
 
 .form-SG {
     width: 100%;
-    margin: 0;
+    margin: 0px;
     padding-left: 0;
     display: flex;
     flex-direction: column;
@@ -160,6 +160,7 @@ body {
     align-items: stretch;
     border-radius: 8px;
     overflow: hidden;
+    min-height: 400px;
 }
 
 .img-container.SG img {
@@ -223,11 +224,12 @@ body {
     width: 100%;
     max-width: 100%;
     aspect-ratio: 16/9;
-    min-height: 280px;
+    min-height: 320px;
     object-fit: cover;
     border-radius: 8px;
     transition: transform 0.4s ease;
 }
+
 
 .carte.SG img:hover {
     transform: scale(1.05);
@@ -245,6 +247,7 @@ body {
 .conference.SG {
     padding: 50px 50px;
     line-height: 1.6;
+    text-align: left;
 }
 
 .conference.SG h4 {
@@ -303,5 +306,18 @@ body {
     .galerie.SG {
         gap: 20px;
         padding: clamp(10px, 2vw, 16px) clamp(24px, 6vw, 40px);
+    }
+}
+
+/* Ajustement responsive du formulaire */
+@media (max-width: 900px) {
+    .form-SG {
+        padding: clamp(16px, 4vw, 24px);
+    }
+}
+
+@media (max-width: 480px) {
+    .form-SG {
+        padding: clamp(12px, 5vw, 18px);
     }
 }
