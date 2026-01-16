@@ -1,0 +1,210 @@
+/*Informations contact*/
+.DonneesContact {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+.infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.infos a {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 8px;
+    color: white;
+}
+
+.hover {
+    overflow: hidden;
+    margin: 8px;
+}
+
+
+.hover:hover{-webkit-transform:scale(1.3);transform:scale(1.3);-webkit-transition:0.2s ease-in-out;transition:0.2s ease-in-out}
+
+/*Tablette (≤ 1024px)*/
+@media (max-width: 1024px) {
+    .DonneesContact {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+/*Mobile (≤ 600px)*/
+@media (max-width: 600px) {
+    .DonneesContact {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .infos h4 {
+        font-size: 1.2rem;
+    }
+
+    .infos p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .infos img {
+        max-width: 55px;
+    }
+}
+
+
+/*fond etoile js*/
+    /* Canvas Three.js en arrière-plan */
+   html, body {
+      margin: 0;
+      height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+
+    /* Canvas Three.js en arrière-plan */
+    #space {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Contenu au-dessus */
+    .content {
+      position: relative;
+      z-index: 1;
+      min-height: 300vh;
+      padding: 10vh 8vw;
+    }
+
+    .panel {
+      max-width: 900px;
+      margin: 0 auto 14vh auto;
+      padding: 32px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 18px;
+      background: rgba(0,0,0,.35);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.6);
+      text-decoration: none;
+      color: white;
+      margin-top: 12px;
+    }
+
+
+/*Nav bar*/
+
+.infos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.infos a {
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.hover {
+    overflow: hidden;
+    margin: 8px;
+}
+
+
+.hover:hover{-webkit-transform:scale(1.3);transform:scale(1.3);-webkit-transition:0.2s ease-in-out;transition:0.2s ease-in-out}
+
+/*Tablette (≤ 1024px)*/
+@media (max-width: 1024px) {
+    .DonneesContact {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+}
+
+/*Mobile (≤ 600px)*/
+@media (max-width: 600px) {
+    .DonneesContact {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .infos h4 {
+        font-size: 1.2rem;
+    }
+
+    .infos p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .infos img {
+        max-width: 55px;
+    }
+}
+
+
+/*fond etoile js*/
+    /* Canvas Three.js en arrière-plan */
+   html, body {
+      margin: 0;
+      height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+
+    /* Canvas Three.js en arrière-plan */
+    #space {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Contenu au-dessus */
+    .content {
+      position: relative;
+      z-index: 1;
+      min-height: 300vh;
+      padding: 10vh 8vw;
+    }
+
+    .panel {
+      max-width: 900px;
+      margin: 0 auto 14vh auto;
+      padding: 32px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 18px;
+      background: rgba(0,0,0,.35);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.6);
+      text-decoration: none;
+      color: white;
+      margin-top: 12px;
+    }
+
+
+/*Nav bar*/
