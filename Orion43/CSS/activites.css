@@ -23,19 +23,20 @@ body {
 
 /* -------------------- HEADER -------------------- */
 .header-img.SG {
-    background-color: #05060a;
-    background-image: url("../Imagesactivités/fond\ arrière\ plan.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: clamp(200px, 40vw, 320px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
+  background-image: url("../Imagesactivités/fond\ arrière\ plan.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: clamp(240px, 45vw, 520px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
 }
+
 
 .header-img.SG::before {
     content: "";
@@ -63,7 +64,7 @@ body {
 .reservation.SG {
     display: flex;
     gap: 30px;
-    padding: 50px 50px;
+    padding: 20px 20px;
     justify-content: space-between;
     align-items: stretch;
     min-height: auto;
@@ -154,23 +155,25 @@ body {
 }
 
 .img-container.SG {
-    flex: 1 1 48%;
+    flex: 1 1 100%;
     display: flex;
     height: 100%;
-    align-items: stretch;
     border-radius: 8px;
-    overflow: hidden;
     min-height: 400px;
+    object-fit: contain;
+    margin: auto;
 }
 
 .img-container.SG img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     display: block;
     border-radius: 8px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     transition: transform 0.4s ease;
+    align-items: center;
+    justify-content: center;
 }
 
 .img-container.SG img:hover {
@@ -210,7 +213,6 @@ body {
 .carte.SG {
     flex: 0 0 calc(33.333% - clamp(20px, 3vw, 40px));
     border-radius: 8px;
-    overflow: hidden;
     box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     transition: all 0.3s ease;
 }
@@ -318,6 +320,303 @@ body {
 
 @media (max-width: 480px) {
     .form-SG {
-        padding: clamp(12px, 5vw, 18px);
+        padding: 50px
     }
+}
+
+/* ===============================
+   SECTION OBSERVATION — AMÉLIORÉE
+=================================*/
+
+.observation.SG {
+    display: flex;
+    gap: clamp(24px, 3vw, 48px);
+    justify-content: space-between;
+    align-items: center;
+    padding: clamp(30px, 4vw, 60px);
+    box-sizing: border-box;
+    background: rgba(255,255,255,0.03);
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+}
+.maquette {
+    height: auto;
+    width: 50px;
+    }
+
+
+    /* ------- Image ------- */
+.obs-image.SG {
+    flex: 1 1 45%;
+    border-radius: 12px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+    transform: translateY(0);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.obs-image.SG img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.obs-image.SG:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.45);
+}
+
+/* ------- Texte ------- */
+.obs-texte.SG {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    color: #e6e6e6;
+}
+
+.obs-texte.SG h2 {
+    font-size: var(--h2);
+    margin-bottom: 18px;
+    font-weight: 700;
+    color: #f5f5f5;
+    line-height: 1.25;
+}
+
+.obs-texte.SG p {
+    margin-bottom: 16px;
+    line-height: 1.65;
+    font-size: calc(var(--base) * 0.95);
+}
+
+/* ------- CTA (Au besoin) ------- */
+.obs-cta {
+    margin-top: 20px;
+}
+
+.obs-cta .btn-primary {
+    padding: 14px 26px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 6px;
+}
+
+/* ===============================
+   RESPONSIVE
+=================================*/
+@media (max-width: 900px) {
+    .observation.SG {
+        flex-direction: column;
+        padding: clamp(20px, 4vw, 36px);
+    }
+
+    .obs-image.SG {
+        width: 100%;
+        min-height: 280px;
+    }
+
+    .obs-texte.SG {
+        width: 100%;
+    }
+
+    .obs-texte.SG h2 {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .observation.SG {
+        gap: 18px;
+        padding: clamp(16px, 5vw, 24px);
+        border-radius: 8px;
+    }
+
+    .obs-texte.SG p {
+        font-size: calc(var(--base) * 0.9);
+    }
+}
+
+/* ===============================
+   PAGE ASTROPHOTOGRAPHIE
+=================================*/
+
+/* ---- Header ---- */
+.header-astro.SG {
+    background-color: #05060a;
+    background-image: url("../Imagesactivités/astrophotographie_header.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: clamp(220px, 42vw, 360px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 8px;
+}
+
+.header-astro.SG::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.35));
+    z-index: 0;
+}
+
+.header-astro.SG h1 {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-size: var(--h1);
+    text-shadow: 0 0 10px #000;
+    margin: 0;
+}
+
+/* ---- Intro ---- */
+.intro-astro.SG {
+    padding: clamp(40px, 5vw, 70px) clamp(10px, 4vw, 40px);
+    color: #ddd;
+    line-height: 1.65;
+}
+
+.intro-astro.SG p {
+    margin-bottom: 20px;
+}
+
+/* ---- Technique + Image ---- */
+.technique-astro.SG {
+    display: flex;
+    gap: clamp(24px, 3vw, 48px);
+    padding: clamp(40px, 5vw, 80px) 0;
+    align-items: center;
+}
+
+.technique-texte.SG {
+    flex: 1 1 50%;
+    color: #e5e5e5;
+}
+
+.technique-texte.SG h2 {
+    font-size: var(--h2);
+    margin-bottom: 18px;
+    color: #fff;
+}
+
+.technique-texte.SG p {
+    font-size: calc(var(--base)*0.95);
+    margin-bottom: 14px;
+}
+
+.technique-image.SG {
+    flex: 1 1 45%;
+    border-radius: 10px;
+    box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+    transform: translateY(0);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.technique-image.SG img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.technique-image.SG:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.45);
+}
+
+/* ---- Galerie Astro ---- */
+.galerie-astro.SG {
+    padding: clamp(40px, 5vw, 80px) 0;
+    display: flex;
+    justify-content: center;
+    gap: clamp(20px, 3vw, 40px);
+    flex-wrap: wrap;
+}
+
+.carte-astro.SG {
+    flex: 0 0 calc(33.333% - clamp(20px, 3vw, 40px));
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.carte-astro.SG:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 34px rgba(0,0,0,0.35);
+}
+
+.carte-astro.SG img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    aspect-ratio: 4/3;
+}
+
+.carte-astro.SG h3 {
+    text-align: center;
+    margin: 12px 0;
+    font-size: var(--h3);
+    color: #f5f5f5;
+}
+
+/* ---- Réservation ---- */
+.resa-astro.SG {
+    padding: clamp(40px, 5vw, 80px);
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+}
+
+.resa-astro.SG h2 {
+    font-size: var(--h2);
+    margin-bottom: 16px;
+    color: #fff;
+    text-align: center;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+    .technique-astro.SG {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 768px) {
+    .carte-astro.SG {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* --- WARNING BOX --- */
+.warning-box {
+    background: rgba(255, 0, 0, 0.15);
+    border-left: 4px solid red;
+    padding: 14px 16px;
+    margin: 20px 0;
+    border-radius: 6px;
+    font-weight: 600;
+    color: #ffaaaa;
+}
+
+/* --- SOHO IMAGE SECTION --- */
+.soho-image.SG {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.soho-image.SG img {
+    width: 100%;
+    max-width: 650px;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+.soho-image .source {
+    margin-top: 8px;
+    color: #ccc;
+    font-size: 0.85rem;
 }
