@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 15 jan. 2026 à 15:37
+-- Généré le : ven. 16 jan. 2026 à 10:50
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -20,6 +20,112 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `orion43`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `admin`
+--
+
+CREATE TABLE `admin` (
+  `admin_id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `mot_de_passe` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `article`
+--
+
+CREATE TABLE `article` (
+  `article_id` int(11) NOT NULL,
+  `titre` varchar(255) NOT NULL,
+  `slug` varchar(255) NOT NULL,
+  `contenu` text NOT NULL,
+  `date_publication` datetime NOT NULL,
+  `epingle` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `article`
+--
+
+INSERT INTO `article` (`article_id`, `titre`, `slug`, `contenu`, `date_publication`, `epingle`) VALUES
+(1, 'Aurores polaires', 'aurores-polaires', 'La nuit du 11 au 12 novembre nous a réservé une belle surprise : malgré un ciel partiellement couvert, nous avons réussi à capturer une superbe aurore boréale.', '2025-01-01 00:00:00', 0),
+(2, 'Comète C/2025 A6 (Lemmon)', 'comete-c-2025-a6-lemmon', 'Voici deux magnifiques images de cette comète, capturées par Bernard au cours du mois d\'octobre, lorsqu\'elle était observable avec des jumelles ou un télescope.', '2025-01-01 00:00:00', 0),
+(3, 'Nouveau président', 'nouveau-president', 'C\'est avec plaisir que nous vous annonçons l\'élection de Daniel Vincent à la présidence de notre Club lors de la dernière assemblée générale. Une nouvelle étape pour notre projet commun !', '2025-01-01 00:00:00', 0),
+(4, 'Dimanche 5 octobre', 'dimanche-5-octobre', 'Le Club Orion était présent à la Fête de la Science organisée au Musée Crozatier. L\'occasion de rappeler que curiosité, soif de découverte et intelligence sont les clés qui nous ont permis d\'atteindre nos connaissances actuelles sur les astres et l\'Univers.', '2025-01-01 00:00:00', 0),
+(5, 'Eclipse de lune du 7 septembre', 'eclipse-de-lune-du-7-septembre', 'Les membres du club ont capturé de magnifiques images. (image)', '2025-01-01 00:00:00', 0),
+(6, 'Orion a fêté ses 30 ans', 'orion-a-fete-ses-30-ans', 'Ce samedi ensoleillé a rassemblé la grande famille d\'Orion : membres actuels et anciens, fidèles sympathisants et invités, pour une rencontre placée sous le signe de l\'amitié et de la convivialité. De magnifiques diaporamas ont permis de revivre les belles années passées ensemble, avant de conclure la soirée par une séance d\'observation du ciel, comme il se doit.', '2025-01-01 00:00:00', 0),
+(7, 'Astrophoto à la coupole', 'astrophoto-a-la-coupole', 'Les nuits d\'hiver offrent des conditions idéales pour l\'astrophotographie, comme en témoignent ces images de la nébuleuse d\'Orion et de Jupiter avec sa Grande Tache Rouge et ses satellites.', '2024-01-01 00:00:00', 0),
+(8, 'Lune', 'lune', 'Belle séance d\'observation lunaire le 20 janvier à l\'observatoire : au programme, photographies de plusieurs formations remarquables dont les cratères Boulliau (image), Clavius (image)et Platon(image).', '2024-01-01 00:00:00', 0),
+(9, 'Un dernier adieu à la Comète C2022/E3 (ZTF)', 'un-dernier-adieu-a-la-comete-c2022-e3-ztf', 'Samedi 11 février, les membres d\'Orion Astronomie du Velay ont profité d\'une excellente nuit d\'observation à l\'observatoire du Betz, à Saint-Julien-Chapteuil. Sans Lune jusqu\'à 2 heures du matin, le ciel a révélé ses merveilles : cette photo immortalise la constellation du Taureau au sud-ouest, dominée par l\'éclat de Mars et, juste en dessous, la comète arborant sa queue verticale.\r\nPassée au plus près du Soleil le 12 janvier (166 millions de km) puis de la Terre le 1er février (42 millions de km), elle file désormais à 180 000 km/h en s\'éloignant de nous. Son minuscule noyau de 1,6 km et sa luminosité faiblissante nécessiteront bientôt l\'usage d\'un télescope pour l\'apercevoir.\r\nInitialement prévue pour revenir dans 50 000 ans sur son orbite très elliptique, sa vitesse élevée suggère maintenant qu\'elle franchira l\'orbite de Neptune pour quitter à jamais le système solaire. En attendant les prochaines...', '2023-01-01 00:00:00', 0),
+(10, 'Inauguration à l’observatoire', 'inauguration-a-l-observatoire', 'Le samedi 1er octobre, le Club Orion a inauguré ses deux coupoles en présence d\'André Ferret, maire de Saint-Julien-Chapteuil, accompagné de son conseil municipal, ainsi que de Claude Mourlevat et Didier Jay, concepteurs et fabricants de la nouvelle coupole, et de Roger Issartel et Jean-Marc Delon, constructeurs de la première coupole en 1989.', '2022-01-01 00:00:00', 0),
+(11, 'Deux coupoles à l’observatoire', 'deux-coupoles-a-l-observatoire', 'Lundi 25 avril au soir, l\'observatoire du Betz a accueilli sa nouvelle coupole en aluminium, marquant un tournant pour Orion Astronomie du Velay. Cette installation moderne prendra la place de l\'ancienne coupole, fidèle au poste depuis 1989, qui bénéficiera d\'une seconde vie après rénovation sur une plateforme dédiée.\r\nLa mise en place, effectuée le 26 avril, s\'est déroulée en douceur grâce à la mobilisation des membres de l\'association et à l\'expertise minutieuse des artisans.', '2022-01-01 00:00:00', 0),
+(12, '4 saisons d’astronomie', '4-saisons-d-astronomie', 'Video', '2021-01-01 00:00:00', 0),
+(13, 'ORION activités et projets', 'orion-activites-et-projets', 'Video', '2021-01-01 00:00:00', 0),
+(14, 'Albums', 'albums', 'Galerie photographique Cliquez sur les vignettes pour découvrir nos collections : objets du système solaire, ciel profond, phénomènes atmosphériques et célestes.', '2017-01-01 00:00:00', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `categorie_photo`
+--
+
+CREATE TABLE `categorie_photo` (
+  `categorie_id` int(11) NOT NULL,
+  `nom` varchar(100) NOT NULL,
+  `slug` varchar(100) NOT NULL,
+  `description` text DEFAULT NULL,
+  `type_affichage` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `categorie_photo`
+--
+
+INSERT INTO `categorie_photo` (`categorie_id`, `nom`, `slug`, `description`, `type_affichage`) VALUES
+(1, 'Lune', 'lune', 'Photographies de la surface et des phases de la Lune.', ''),
+(2, 'Soleil', 'soleil', 'Images du Soleil et de ses phénomènes visibles.', ''),
+(3, 'Mars', 'mars', 'Photographies de la planète Mars.', ''),
+(4, 'Jupiter', 'jupiter', 'Images de la planète Jupiter et de ses détails.', ''),
+(5, 'Saturne', 'saturne', 'Photographies de Saturne et de ses anneaux.', ''),
+(6, 'Nébuleuses', 'nebuleuses', 'Images de nuages de gaz et de poussières cosmiques.', ''),
+(8, 'Nébuleuse annulaire', 'nebuleuse-annulaire', 'Images de nébuleuses de type annulaire.', ''),
+(9, 'Galaxies', 'galaxies', 'Photographies de galaxies situées hors de la Voie lactée.', ''),
+(10, 'Amas', 'amas', 'Images d’amas d’étoiles ouverts ou globulaires.', ''),
+(11, 'Comètes', 'cometes', 'Photographies de comètes observables depuis la Terre.', ''),
+(12, 'Voie lactée', 'voie-lactee', 'Photographies grand champ de la Voie lactée dans le ciel nocturne.', ''),
+(13, 'Circumpolaire', 'circumpolaire', 'Images montrant la rotation apparente des étoiles autour du pôle céleste.', ''),
+(14, 'Arc-en-ciel', 'arc-en-ciel', 'Photographies de phénomènes atmosphériques lumineux.', ''),
+(15, 'Nuages irisés', 'nuages-irises', 'Images de nuages présentant des effets de diffraction colorée.', ''),
+(16, 'Étoiles', 'etoiles', 'Photographies du ciel étoilé et des constellations.', ''),
+(17, 'Conjonction', 'conjonction', 'Images de rapprochements apparents entre astres dans le ciel.', ''),
+(18, 'Coucher de soleil', 'coucher-soleil', 'Photographies de couchers de soleil et d’ambiances célestes.', ''),
+(19, 'Grand champ', 'grand-champ', 'Photographies grand angle du ciel et de l’horizon.', ''),
+(20, 'Time-lapse', 'time-lapse', 'Séquences d’images montrant l’évolution du ciel dans le temps.', ''),
+(21, 'Spectro', 'spectro', 'Images issues de techniques de spectroscopie astronomique.', ''),
+(22, 'accueil', 'accueil', NULL, ''),
+(23, 'Article', 'article', NULL, ''),
+(24, 'logo', 'logo', NULL, ''),
+(25, 'nos-prochaines-soirees', 'nos-prochaines-soirees', NULL, ''),
+(26, 'wp', 'wp', NULL, '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `evenement`
+--
+
+CREATE TABLE `evenement` (
+  `evenement_id` int(11) NOT NULL,
+  `titre` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `date_event` datetime NOT NULL,
+  `max_places` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -536,9 +642,67 @@ INSERT INTO `photo` (`photo_id`, `url`, `titre`, `description`, `infos_technique
 (489, 'images/NosPhotos/voie_lactee/voie_lactee_005.jpg', 'voie_lactee_005', NULL, 'GRands champ (cygne, lyre) objectif 18-55 mm F/3.5 + Monture EM_200 CYRIL PENTAX K5 POSE 25 * 340s - 1600 ISO - 17 DARK - (pas offset) PIXINSITE 25 images', '2015-10-31', 12, NULL),
 (490, 'images/NosPhotos/voie_lactee/voie_lactee_006.jpg', 'voie_lactee_006', NULL, 'GRands champ (cygne, lyre) (avec marquages) objectif 18-55 mm F/3.5 + Monture EM_200 CYRIL PENTAX K5 POSE 25 * 340s - 1600 ISO - 17 DARK - (pas offset) PIXINSITE 25 images', '2015-10-31', 12, NULL);
 
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `photo_import`
+--
+
+CREATE TABLE `photo_import` (
+  `page_url` varchar(512) DEFAULT NULL,
+  `image_url` varchar(512) DEFAULT NULL,
+  `alt` text DEFAULT NULL,
+  `width` int(11) DEFAULT NULL,
+  `height` int(11) DEFAULT NULL,
+  `source` varchar(16) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `reservation`
+--
+
+CREATE TABLE `reservation` (
+  `reservation_id` int(11) NOT NULL,
+  `nom` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telephone` varchar(50) NOT NULL,
+  `nb_places` int(11) NOT NULL,
+  `date_reservation` datetime NOT NULL DEFAULT current_timestamp(),
+  `evenement_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 --
 -- Index pour les tables déchargées
 --
+
+--
+-- Index pour la table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`admin_id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- Index pour la table `article`
+--
+ALTER TABLE `article`
+  ADD PRIMARY KEY (`article_id`),
+  ADD UNIQUE KEY `slug` (`slug`);
+
+--
+-- Index pour la table `categorie_photo`
+--
+ALTER TABLE `categorie_photo`
+  ADD PRIMARY KEY (`categorie_id`),
+  ADD UNIQUE KEY `slug` (`slug`);
+
+--
+-- Index pour la table `evenement`
+--
+ALTER TABLE `evenement`
+  ADD PRIMARY KEY (`evenement_id`);
 
 --
 -- Index pour la table `photo`
@@ -549,14 +713,51 @@ ALTER TABLE `photo`
   ADD KEY `fk_photo_article` (`article_id`);
 
 --
+-- Index pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD PRIMARY KEY (`reservation_id`),
+  ADD KEY `fk_reservation_evenement` (`evenement_id`);
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
+
+--
+-- AUTO_INCREMENT pour la table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT pour la table `article`
+--
+ALTER TABLE `article`
+  MODIFY `article_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT pour la table `categorie_photo`
+--
+ALTER TABLE `categorie_photo`
+  MODIFY `categorie_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
+--
+-- AUTO_INCREMENT pour la table `evenement`
+--
+ALTER TABLE `evenement`
+  MODIFY `evenement_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT pour la table `photo`
 --
 ALTER TABLE `photo`
   MODIFY `photo_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=491;
+
+--
+-- AUTO_INCREMENT pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Contraintes pour les tables déchargées
@@ -568,6 +769,12 @@ ALTER TABLE `photo`
 ALTER TABLE `photo`
   ADD CONSTRAINT `fk_photo_article` FOREIGN KEY (`article_id`) REFERENCES `article` (`article_id`) ON DELETE SET NULL,
   ADD CONSTRAINT `fk_photo_categorie` FOREIGN KEY (`categorie_id`) REFERENCES `categorie_photo` (`categorie_id`);
+
+--
+-- Contraintes pour la table `reservation`
+--
+ALTER TABLE `reservation`
+  ADD CONSTRAINT `fk_reservation_evenement` FOREIGN KEY (`evenement_id`) REFERENCES `evenement` (`evenement_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

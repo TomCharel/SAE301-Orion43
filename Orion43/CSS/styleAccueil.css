@@ -1,16 +1,17 @@
    /* -------------------- HEADER -------------------- */
 .header-img.SG {
-    /* background-image: url("../Image/imageAccueil/APropos.jpg"); */
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: clamp(200px, 40vw, 320px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
+  background-image: url("../Image/imageAccueil/lune_018.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: clamp(240px, 45vw, 520px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .header-img.SG::before {
@@ -33,7 +34,8 @@
    /* Classe commune pour toutes les sections principales */
     .about-section,
     .observatory-section,
-    .actualites-section {
+    .actualites-section,
+    .location-section {
       position: relative;
       z-index: 10;
       padding: 20px 20px;
@@ -295,7 +297,9 @@
 
     /* -------------------- SECTION PARTENAIRES -------------------- */
     .partenaires-section {
-      position: relative;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
       z-index: 10;
       padding: 40px 0;
       width: 100%;
@@ -306,7 +310,6 @@
       text-align: center;
       margin-bottom: 40px;
       padding: 0 20px;
-      width: 100%;
     }
 
     /* Carrousel de partenaires */
@@ -484,5 +487,54 @@
         flex: 0 0 auto;
         width: 100%;
         max-width: 400px;
+      }
+    }
+
+    /* -------------------- SECTION LOCALISATION -------------------- */
+    .location-container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .location-container h2 {
+      font-size: var(--h2);
+      margin-bottom: 15px;
+    }
+
+    .location-address {
+      font-size: var(--h3);
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+
+    .map-container {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .map-container iframe {
+      display: block;
+      width: 100%;
+      max-width: 1400px;
+      height: 500px;
+    }
+
+    /* Responsive pour la section localisation */
+    @media (max-width: 768px) {
+      .location-section {
+        padding: 30px 15px;
+      }
+
+      .location-address {
+        font-size: var(--base);
+      }
+
+      .map-container iframe {
+        min-height: 350px;
       }
     }
