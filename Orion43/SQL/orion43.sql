@@ -127,6 +127,16 @@ CREATE TABLE `evenement` (
   `max_places` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Déchargement des données de la table `evenement`
+--
+
+INSERT INTO `evenement` (`evenement_id`, `titre`, `description`, `date_event`, `max_places`) VALUES
+(1, 'Observation du ciel', 'Soirée d\'observation du ciel étoilé à l\'observatoire du Betz. Découverte des constellations, observation de planètes et d\'objets du ciel profond avec nos télescopes. Accessible à tous, débutants comme passionnés.', '2026-02-15 21:00:00', 25),
+(2, 'Atelier / Conférence', 'Atelier pratique et conférence sur l\'astronomie. Apprenez les bases de l\'observation astronomique, la manipulation des télescopes et participez à des présentations sur des thématiques variées : système solaire, vie des étoiles, exploration spatiale.', '2026-03-08 19:30:00', 30),
+(3, 'Observation du ciel', 'Soirée spéciale observation de la Lune et des planètes visibles. Un moment privilégié pour admirer les détails de notre satellite naturel et découvrir Jupiter, Saturne et leurs lunes avec nos instruments.', '2026-04-12 20:30:00', 20),
+(4, 'Atelier / Conférence', 'Conférence suivie d\'un atelier pratique sur l\'astrophotographie. Découvrez les techniques pour photographier le ciel nocturne et réalisez vos premières images du ciel étoilé.', '2026-05-20 19:00:00', 15);
+
 -- --------------------------------------------------------
 
 --
@@ -745,7 +755,7 @@ ALTER TABLE `categorie_photo`
 -- AUTO_INCREMENT pour la table `evenement`
 --
 ALTER TABLE `evenement`
-  MODIFY `evenement_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `evenement_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `photo`

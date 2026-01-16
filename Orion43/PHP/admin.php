@@ -111,6 +111,42 @@ $stmt = $pdo->query("
     LIMIT 10
 ");
 $recentPhotos = $stmt->fetchAll();
+
+// Récupérer les réservations récentes avec les informations des événements
+$stmt = $pdo->query("
+    SELECT 
+        r.reservation_id,
+        r.nom,
+        r.email,
+        r.telephone,
+        r.nb_places,
+        r.date_reservation,
+        e.titre as evenement_titre,
+        e.date_event,
+        e.max_places,
+        (SELECT COALESCE(SUM(nb_places), 0) FROM reservation WHERE evenement_id = e.evenement_id) as total_reservations
+    FROM reservation r
+    INNER JOIN evenement e ON r.evenement_id = e.evenement_id
+    ORDER BY r.date_reservation DESC
+");
+$reservations = $stmt->fetchAll();
+
+// Récupérer les statistiques par événement
+$stmt = $pdo->query("
+    SELECT 
+        e.evenement_id,
+        e.titre,
+        e.date_event,
+        e.max_places,
+        COALESCE(SUM(r.nb_places), 0) as places_reservees,
+        COUNT(DISTINCT r.reservation_id) as nb_reservations
+    FROM evenement e
+    LEFT JOIN reservation r ON e.evenement_id = r.evenement_id
+    WHERE e.date_event > NOW()
+    GROUP BY e.evenement_id
+    ORDER BY e.date_event ASC
+");
+$evenementsStats = $stmt->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -176,6 +212,93 @@ $recentPhotos = $stmt->fetchAll();
                 
                 <button type="submit">Ajouter la photo</button>
             </form>
+        </div>
+        
+        <div class="reservations-section">
+            <h2>Gestion des réservations</h2>
+            
+            <!-- Statistiques par événement -->
+            <div class="events-stats">
+                <h3>Événements à venir</h3>
+                <?php if (count($evenementsStats) > 0): ?>
+                    <table class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Événement</th>
+                                <th>Date</th>
+                                <th>Réservations</th>
+                                <th>Places réservées</th>
+                                <th>Taux de remplissage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($evenementsStats as $stat): ?>
+                                <?php 
+                                    $taux = ($stat['max_places'] > 0) 
+                                        ? round(($stat['places_reservees'] / $stat['max_places']) * 100) 
+                                        : 0;
+                                    $dateFormatted = date('d/m/Y H:i', strtotime($stat['date_event']));
+                                ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($stat['titre']) ?></td>
+                                    <td><?= $dateFormatted ?></td>
+                                    <td><?= $stat['nb_reservations'] ?></td>
+                                    <td><?= $stat['places_reservees'] ?> / <?= $stat['max_places'] ?></td>
+                                    <td>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: <?= $taux ?>%"></div>
+                                            <span><?= $taux ?>%</span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php else: ?>
+                    <p class="no-data">Aucun événement à venir</p>
+                <?php endif; ?>
+            </div>
+            
+            <!-- Liste des réservations -->
+            <div class="reservations-list">
+                <h3>Dernières réservations</h3>
+                <?php if (count($reservations) > 0): ?>
+                    <table class="reservations-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Téléphone</th>
+                                <th>Événement</th>
+                                <th>Date événement</th>
+                                <th>Places</th>
+                                <th>Date réservation</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($reservations as $resa): ?>
+                                <?php 
+                                    $dateEvent = date('d/m/Y H:i', strtotime($resa['date_event']));
+                                    $dateResa = date('d/m/Y H:i', strtotime($resa['date_reservation']));
+                                ?>
+                                <tr>
+                                    <td>#<?= $resa['reservation_id'] ?></td>
+                                    <td><?= htmlspecialchars($resa['nom']) ?></td>
+                                    <td><?= htmlspecialchars($resa['email']) ?></td>
+                                    <td><?= htmlspecialchars($resa['telephone']) ?></td>
+                                    <td><?= htmlspecialchars($resa['evenement_titre']) ?></td>
+                                    <td><?= $dateEvent ?></td>
+                                    <td><?= $resa['nb_places'] ?></td>
+                                    <td><?= $dateResa ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                <?php else: ?>
+                    <p class="no-data">Aucune réservation pour le moment</p>
+                <?php endif; ?>
+            </div>
         </div>
         
         <div class="recent-photos">
