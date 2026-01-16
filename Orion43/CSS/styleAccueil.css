@@ -305,9 +305,8 @@
     .partenaires-section h2 {
       text-align: center;
       margin-bottom: 40px;
-      padding: 0 40px;
-      margin-left: auto;
-      margin-right: auto;
+      padding: 0 20px;
+      width: 100%;
     }
 
     /* Carrousel de partenaires */
