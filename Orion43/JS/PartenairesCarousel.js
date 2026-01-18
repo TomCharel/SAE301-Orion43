@@ -1,3 +1,5 @@
+//script carroussel pour afficher les partenaires de l'observatoire
+
 // Liste des images partenaires disponibles
 const partenaireImages = [
     '../Image/ImageSite/logo/03_logo_dark_blue_082.bmp',

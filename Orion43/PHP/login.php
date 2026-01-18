@@ -9,7 +9,9 @@ $error = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'] ?? 'admin';
-    $password = $_POST['password'] ?? 'admin';
+    // $password = $_POST['password'] ?? 'admin';
+    // Mot de passe par défaut côté serveur pour faciliter l'accès en dev
+    $password = $_POST['password'] ?? 'orion43_admin';
     
     if ($username === ADMIN_USERNAME && password_verify($password, ADMIN_PASSWORD)) {
         $_SESSION['admin_logged_in'] = true;
@@ -39,12 +41,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="POST">
             <div class="form-group">
                 <label for="username">Nom d'utilisateur</label>
-                <input type="text" id="username" name="username" required>
+                <input type="text" id="username" name="username" value="admin" required>
             </div>
             
             <div class="form-group">
                 <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password" value="orion43_admin" required>
             </div>
             
             <button type="submit">Se connecter</button>

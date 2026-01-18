@@ -431,6 +431,13 @@
       font-size: var(--base);
     }
 
+    /* Lisibilité du menu déroulant: options en texte foncé sur fond clair */
+    .form-SG select option,
+    .form-SG select optgroup {
+      color: #000;
+      background-color: #fff;
+    }
+
     .form-SG input::placeholder {
       color: rgba(255,255,255,0.4);
     }

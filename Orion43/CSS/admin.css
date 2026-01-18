@@ -163,6 +163,23 @@ button[type="submit"]:hover {
     box-shadow: 0 5px 15px rgba(245, 252, 20, 0.4);
 }
 
+/* Bouton supprimer */
+.btn-delete {
+    padding: 6px 12px;
+    background: rgba(244, 67, 54, 0.2);
+    color: #f44336;
+    border: 1px solid #f44336;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-delete:hover {
+    background: #f44336;
+    color: #fff;
+}
+
 /* Tables */
 .stats-table,
 .reservations-table {

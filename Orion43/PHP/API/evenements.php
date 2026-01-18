@@ -1,7 +1,7 @@
 <?php
 // Petite API : ce fichier ne renvoie pas de HTML mais des données JSON pour le front
 // (ex: le script JS charge les événements et les affiche côté navigateur).
-require_once '../PHP/config/bdd.php';
+include '../config/bdd.php';
 
 // On indique au client que la réponse sera du JSON (convention d'une API web simple)
 header('Content-Type: application/json');
@@ -20,7 +20,7 @@ try {
         FROM evenement e
         LEFT JOIN reservation r ON e.evenement_id = r.evenement_id
         WHERE e.date_event > NOW()
-        GROUP BY e.evenement_id
+            GROUP BY e.evenement_id, e.titre, e.description, e.date_event, e.max_places
         HAVING places_disponibles > 0
         ORDER BY e.date_event ASC
     ");
