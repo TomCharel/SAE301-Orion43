@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orion 43 - Observation</title>
+    <link rel="stylesheet" href="../../CSS/style.css">
+    <link rel="stylesheet" href="../../CSS/activites.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="Index.html" class="logo">
+                <img src="../../Image/CharteGraphique/logo blanc.png" alt="Orion 43 Logo">
+            </a>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="Index.html" class="nav-link">Accueil</a></li>
+                <li><a href="Actualites.html" class="nav-link">Actualités</a></li>
+                <li><a href="NosActivites.html" class="nav-link">Nos activités</a></li>
+                <li><a href="NosPhotos.html" class="nav-link">Nos photos</a></li>
+                <li><a href="Contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <canvas id="space"></canvas>
+
+    <header class="header-img SG">
+    <h1>Observation</h1>
+</header>
+
+<main class="main-content">
+
+    <section class="observation SG">
+
+        <div class="obs-image SG">
+            <img src="../../Imagesactivités/observation/IMG_5548-768x1024.jpg" alt="Observatoire Orion 43">
+            <img src="../../Imagesactivités/observation/photo-C8.jpg" alt="Observatoire Orion 43">
+        </div>
+
+        <div class="obs-texte SG">
+            <h2>Observation</h2>
+
+            <p>L’observation est l’une des activités principales du club.</p>
+
+            <p>L’observation peut se faire à l’œil nu sans instrument, dans un ciel sans pollution lumineuse, on peut admirer la voie lactée ou repérer les différentes constellations. Avec les instruments du club, nous pouvons observer les différentes planètes du système solaire avec leurs satellites, les cratères de la lune, les galaxies, les différents types de nébuleuse ainsi que les amas d’étoiles.</p>
+
+            <p>Avec une simple paire de jumelles, on peut admirer les objets les plus brillants. Pour les objets les moins lumineux le club possède plusieurs télescopes.</p>
+
+            <p>Il y a d’abord un de 400mm dans une coupole. Il est motorisé pour assurer un suivi de l’objet pointé, son grand diamètre permet d’observer les objets de magnitude élevée (faible luminosité). Le club possède aussi trois Dobson (400, 300 et 350mm).</p>
+
+            <p>Ces derniers sont très simples d’utilisation, mais n’étant pas motorisés l’objet visé ne reste que quelques minutes dans le champ de vision, cela ne dérange pas pour l’observation mais la prise de photo est impossible. Un C8 monté sur une monture équatoriale complète le matériel du club. La monture est pilotée par ordinateur rendant le pointage des objets automatique (GOTO). L’observatoire du Betz dispose également d’une seconde coupole et de plusieurs emplacements pour recevoir le matériel des membres.</p>
+        </div>
+
+    </section>
+
+</main>
+
+
+   <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="footer-top-left">
+                <a href="Index.html" class="footer-logo">
+                    <img src="../../Image/CharteGraphique/logo blanc.png" alt="Orion 43 Logo">
+                </a>
+            </div>
+            <div class="footer-top-center">
+                <ul class="footer-nav">
+                    <li><a href="Index.html">Accueil</a></li>
+                    <li><a href="Actualites.html">Actualités</a></li>
+                    <li><a href="NosActivites.html">Nos activités</a></li>
+                    <li><a href="NosPhotos.html">Nos photos</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-top-right">
+                <a href="https://www.facebook.com/43orion/" class="social-link" aria-label="Facebook">
+                    <img src="../../Image/LogoRS/facebook.svg" alt="Facebook">
+                </a>
+                <a href="https://x.com/43Orion" class="social-link" aria-label="X">
+                    <img src="../../Image/LogoRS/x.svg" alt="X">
+                </a>
+                <a href="www.youtube.com/@orionastronomieduvelay1744" class="social-link" aria-label="YouTube">
+                    <img src="../../Image/LogoRS/youtube.svg" alt="YouTube">
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copyright">&copy; 2024 Orion 43. Tous droits réservés.</p>
+            <ul class="footer-legal-links">
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">Conditions d'utilisation</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Script pour le fond étoilé -->
+    <script type="module" src="../../JS/EtoileFond.js"></script>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
