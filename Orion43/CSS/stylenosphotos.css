@@ -1,3 +1,4 @@
+/*Page catégorie*/
 /* Bande image */
 .bande {
   position: relative;
@@ -34,7 +35,7 @@
   background-image: url("../images/06_05_2012.jpg");
 }
 
-
+/*Page galerie*/
 .galerie {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -122,6 +123,7 @@
   }
 }
 
+/*Page sous-catégorie*/
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -133,13 +135,9 @@
 .category-card {
   position: relative;
   display: block;
-  height: 260px;
+  height: 250px;
   overflow: hidden;
-  border-radius: 12px;
-  background: #000;
   text-decoration: none;
-  color: inherit;
-  font-size: 0;
 }
 
 /* Titre */
@@ -149,12 +147,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   font-size: 1.4rem;
   font-weight: 700;
-  letter-spacing: 2px;
   text-transform: uppercase;
-
   color: white;
   background: rgba(0, 0, 0, 0.45);
 }
