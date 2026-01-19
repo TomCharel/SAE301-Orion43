@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orion 43 - Conférences</title>
+    <link rel="stylesheet" href="../../CSS/style.css">
+    <link rel="stylesheet" href="../../CSS/activites.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="Index.html" class="logo">
+                <img src="../../Image/CharteGraphique/logo blanc.png" alt="Orion 43 Logo">
+            </a>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="Index.html" class="nav-link">Accueil</a></li>
+                <li><a href="Actualites.html" class="nav-link">Actualités</a></li>
+                <li><a href="NosActivites.html" class="nav-link">Nos activités</a></li>
+                <li><a href="NosPhotos.html" class="nav-link">Nos photos</a></li>
+                <li><a href="Contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <canvas id="space"></canvas>
+
+    <header class="header-img SG">
+        <h1>Conférences</h1>
+    </header>
+
+    <main class="conferences-main">
+
+        <section class="conferences-section SG">
+
+            <div class="conferences-images SG">
+                <img src="../../Image/Imagesactivités/conferences/DSC_0979.jpg" alt="Conférence Orion 43">
+                <img src="../../Image/Imagesactivités/conferences/P1140674.jpg" alt="Conférence Orion 43">
+                <img src="../../Image/Imagesactivités/conferences/P1140678.jpg" alt="Conférence Orion 43">
+            </div>
+
+            <h2 class="conferences-title">Présentation</h2>
+
+            <p class="conferences-text">
+                Afin de faire partager leurs connaissances, les membres d’Orion organisent régulièrement des conférences 
+                sur des sujets variés comme le système solaire, les grands télescopes, les exoplanètes…
+            </p>
+
+            <p class="conferences-text">
+                Ces conférences ont lieu lors des interventions publiques de l’été (juillet et août). 
+                D’autres conférences sont organisées pour des événements particuliers tels que les éclipses 
+                ou le transit de Mercure.
+            </p>
+
+            <h2 class="conferences-title">Retrouvez-nous sur YouTube</h2>
+
+            <p class="conferences-text">
+                Vous pouvez consulter certaines de nos conférences sur notre chaîne YouTube :
+            </p>
+
+            <div class="conferences-youtube">
+                <a href="https://www.youtube.com/@orionastronomieduvelay1744" target="_blank" class="btn-primary">
+                    Orion Astronomie du Velay – YouTube
+                </a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        ... (footer identique à tes autres pages)
+    </footer>
+
+    <script type="module" src="../../JS/EtoileFond.js"></script>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
