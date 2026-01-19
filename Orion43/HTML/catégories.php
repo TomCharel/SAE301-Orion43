@@ -56,7 +56,6 @@ if (isset($map[$type])) {
         </div>
     </nav>
 
-<body>
     <canvas id="space"></canvas>
 <h1>
     <?= strtoupper(htmlspecialchars($type)) ?>
@@ -67,17 +66,14 @@ if (isset($map[$type])) {
 <?php foreach ($categories as $cat): ?>
     <a class="category-card"
        href="sous-catégorie.php?categorie=<?= $cat->getId() ?>">
-
         <span class="category-title">
             <?= htmlspecialchars($cat->getNom()) ?>
         </span>
-
-        <img
-            src="../Image/categories/<?= htmlspecialchars($cat->getSlug()) ?>.jpg"
-            alt="<?= htmlspecialchars($cat->getNom()) ?>">
     </a>
 <?php endforeach; ?>
+
 </div>
+
 
     </div>
 
@@ -128,3 +124,4 @@ if (isset($map[$type])) {
         </div>
     </footer>
 </html>
+
