@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orion 43 - Conférences</title>
+    <title>Orion 43 - Observation</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../../Image/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../Image/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../Image/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="../../Image/favicon_io/site.webmanifest">
     <link rel="stylesheet" href="../../CSS/style.css">
     <link rel="stylesheet" href="../../CSS/activites.css">
 </head>
@@ -31,38 +35,36 @@
     <canvas id="space"></canvas>
 
     <header class="header-img SG">
-        <h1>Conférences</h1>
-    </header>
+    <h1>Conférences</h1>
+</header>
 
-    <main class="conferences-main">
+<main class="main-content">
 
-        <section class="conferences-section SG">
+    <section class="observation SG">
 
-            <div class="conferences-images SG">
-                <img src="../../Image/Imagesactivités/conferences/DSC_0979.jpg" alt="Conférence Orion 43">
-                <img src="../../Image/Imagesactivités/conferences/P1140674.jpg" alt="Conférence Orion 43">
-                <img src="../../Image/Imagesactivités/conferences/P1140678.jpg" alt="Conférence Orion 43">
+        <div class="obs-image SG">
+            <img src="../../Image/Imagesactivités/conferences/DSC_0979.jpg" alt="Observatoire Orion 43">
+            <img src="../../Image/Imagesactivités/conferences/P1140674.jpg" alt="Observatoire Orion 43">
+                        <img src="../../Image/Imagesactivités/conferences/P1140678.jpg" alt="Observatoire Orion 43">
+
+        </div>
+
+        <div class="obs-texte SG">
+            <h2>Présentation</h2>
+
+            <p>Afin de faire partager leurs connaissances, les membres d’Orion organisent régulièrement des conférences sur des sujets variés comme le système solaire, les grands télescopes, les exoplanètes…
+Ses conférences ont lieu lors des interventions publics de l’été (juillet et août), d’autres conférences sont organisées pour des évènements tels que les éclipses, le transit de mercure …
+            </p>                
             </div>
 
-            <h2 class="conferences-title">Présentation</h2>
+    </section>
 
-            <p class="conferences-text">
-                Afin de faire partager leurs connaissances, les membres d’Orion organisent régulièrement des conférences 
-                sur des sujets variés comme le système solaire, les grands télescopes, les exoplanètes…
-            </p>
-
-            <p class="conferences-text">
-                Ces conférences ont lieu lors des interventions publiques de l’été (juillet et août). 
-                D’autres conférences sont organisées pour des événements particuliers tels que les éclipses 
-                ou le transit de Mercure.
-            </p>
+</main>
 
             <h2 class="conferences-title">Retrouvez-nous sur YouTube</h2>
-
             <p class="conferences-text">
                 Vous pouvez consulter certaines de nos conférences sur notre chaîne YouTube :
             </p>
-
             <div class="conferences-youtube">
                 <a href="https://www.youtube.com/channel/UCvTqUyz6drO9VOxGzXQoovQ/videos" target="_blank" class="btn-primary">
                     Orion Astronomie du Velay – YouTube
@@ -70,10 +72,9 @@
             </div>
 
         </section>
-
     </main>
 
-   <!-- Footer -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-top-left">
@@ -102,7 +103,6 @@
                 </a>
             </div>
         </div>
-
         <div class="footer-bottom">
             <p class="footer-copyright">&copy; 2024 Orion 43. Tous droits réservés.</p>
             <ul class="footer-legal-links">
@@ -112,9 +112,8 @@
         </div>
     </footer>
 
-    <!-- Script pour le fond étoilé -->
+    <!-- Scripts -->
     <script type="module" src="../JS/EtoileFond.js"></script>
-
     <script>
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
