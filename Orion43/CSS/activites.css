@@ -6,13 +6,6 @@
     --h4: clamp(14px, 2vw, 20px);
 }
 
-body {
-    font-size: var(--base);
-    line-height: 1.6;
-    margin: 0;
-    font-family: sans-serif;
-}
-
 /* -------------------- GLOBAL -------------------- */
 .SG {
     max-width: 1400px;
