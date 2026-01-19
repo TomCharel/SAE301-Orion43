@@ -1,13 +1,49 @@
+<?php
+include_once '../PHP/classe_objet/database.php';
+include_once '../PHP/classe_objet/Photo.php';
+include_once '../PHP/classe_objet/Classe_Categorie.php';
+
+$db = Database::getInstance();
+
+$categorie_id = $_GET['categorie'] ?? null;
+if (!$categorie_id) die('Catégorie manquante');
+
+$sql = "SELECT photo_id, url, titre, infos_techniques, date_prise
+        FROM photo
+        WHERE categorie_id = :id
+        ORDER BY photo_id DESC";
+
+$photos = $db->getObjects($sql, 'Photo', [
+    ':id' => $categorie_id
+]);
+
+/* 🔹 Nom de la sous-catégorie */
+$sqlCat = "SELECT categorie_id, nom, slug
+           FROM categorie_photo
+           WHERE categorie_id = :id";
+
+$categorie = $db->getObjects($sqlCat, 'Categorie', [
+    ':id' => $categorie_id
+]);
+
+$nomCategorie = !empty($categorie)
+    ? $categorie[0]->getNom()
+    : 'Galerie';
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orion 43 - Nos photos</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <title>Photos</title>
+        <link rel="stylesheet" href="../css/styleNosPhotos.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+       
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
+     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="Index.html" class="logo">
@@ -27,15 +63,35 @@
             </ul>
         </div>
     </nav>
+<main class="main-content">
+        <canvas id="space"></canvas>
+<h1>
+    <?= htmlspecialchars($nomCategorie) ?>
+</h1>
 
-    <canvas id="space"></canvas>
+    <div class="grid">
+    <?php if (empty($photos)): ?>
+        <p>Aucune photo dans cette catégorie.</p>
+    <?php else: ?>
+        <?php foreach ($photos as $photo): ?>
+    <div class="card">
+        <img src="/page_nos_photos/<?= htmlspecialchars($photo->getUrl()) ?>">
+        <div class="overlay">
+            <p><?= htmlspecialchars($photo->getTitre()) ?></p>
+            <p><?= htmlspecialchars($photo->getInfosTechniques()) ?></p>
+            <p><?= date('d/m/Y', strtotime($photo->getDate())) ?></p>
+        </div>
+    </div>
+<?php endforeach; ?>
 
-    <!-- Contenu principal -->
-    <main class="main-content">
+    <?php endif; ?>
+</main>
 
-    </main>
+</body>
 
-    <!-- Footer -->
+  <!-- Script pour le fond étoilé -->
+<script type="module" src="../JS/EtoileFond.js"></script>
+ <!-- Footer -->
     <footer class="footer">
         <!-- Première ligne du footer -->
         <div class="footer-top">
@@ -75,28 +131,4 @@
             </ul>
         </div>
     </footer>
-</body>
-
-  <!-- Script pour le fond étoilé -->
-<script type="module" src="../JS/EtoileFond.js"></script>
-
-<script>
-    // Menu hamburger
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    });
-
-    // Fermer le menu au clic sur un lien
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-        });
-    });
-</script>
 </html>
