@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Orion 43 - Spectroscopie</title>
+ <link rel="stylesheet" href="../../CSS/style.css">
+ <link rel="stylesheet" href="../../CSS/activites.css">
+</head>
+<body>
+
+ <!-- Navigation -->
+ <nav class="navbar">
+ <div class="nav-container">
+ <a href="../Index.html" class="logo">
+ <img src="../../Image/CharteGraphique/logo blanc.png" alt="Orion 43 Logo">
+ </a>
+ <div class="hamburger">
+ <span></span><span></span><span></span>
+ </div>
+ <ul class="nav-menu">
+ <li><a href="../Index.html" class="nav-link">Accueil</a></li>
+ <li><a href="../Actualites.html" class="nav-link">Actualités</a></li>
+ <li class="nav-item">
+ <a href="../NosActivites.html" class="nav-link">Nos activités</a>
+ <div class="dropdown-menu">
+ <a href="astrophotographie.html">Astrophotographie</a>
+ <a href="conferences.html">Conférences</a>
+ <a href="jeuneorion.html">Jeune Orion</a>
+ <a href="observation.html">Observation</a>
+ <a href="observationsolaire.html">Observation Solaire</a>
+ <a href="soireepublique.html">Soirée Publique</a>
+ <a href="spectrologie.html">Spectrologie</a>
+ </div>
+ </li>
+ <li><a href="../NosPhotos.html" class="nav-link">Nos photos</a></li>
+ <li><a href="../Contact.html" class="nav-link">Contact</a></li>
+ </ul>
+ </div>
+ </nav>
+
+ <canvas id="space"></canvas>
+
+ <header class="header-img SG">
+ <h1>Spectroscopie</h1>
+ </header>
+
+ <main class="spectro-main">
+
+ <section class="spectro-section">
+
+ <p class="spectro-text">
+ La spectroscopie astronomique étudie la lumière en la décomposant selon ses longueurs d’onde.
+ Cette technique permet d’identifier la composition chimique, la température, la vitesse
+ et le stade évolutif des étoiles et des galaxies.
+ </p>
+
+ <p class="spectro-text">
+ En utilisant un réseau de diffraction ou un spectroscope, la lumière recueillie est transformée
+ en un spectre composé de raies d’absorption et d’émission. Ces raies constituent la “signature”
+ des éléments présents dans l'objet observé.
+ </p>
+
+ <h2 class="spectro-title">Spectre de l'étoile Procyon</h2>
+
+ <p class="spectro-text">
+ Procyon (<strong>α Canis Minoris</strong>) est une étoile de type <strong>F5 IV–V</strong>,
+ située dans la constellation du Petit Chien. Son spectre présente de nombreuses raies d'absorption,
+ notamment celles de l’hydrogène (série de Balmer), du calcium et du fer.
+ </p>
+
+ <div class="spectro-image-container">
+ <img src="../../Image/Imagesactivites/conferences/PROCYON-réseau-300-T-.jpg" alt="Spectre de Procyon" class="spectro-image">
+ </div>
+
+ <h2 class="spectro-title">Interprétation du Spectre</h2>
+
+ <p class="spectro-text">
+ Les raies sombres observées sur le spectre sont des <strong>raies d’absorption</strong>.
+ Elles apparaissent quand les éléments chimiques présents dans l'atmosphère stellaire absorbent
+ certaines longueurs d’onde spécifiques.
+ </p>
+
+ <ul class="spectro-list">
+ <li><strong>Hydrogène</strong> — raies de Balmer visibles dans le bleu/rouge</li>
+ <li><strong>Calcium ionisé (Ca II H & K)</strong> — fort dans le violet</li>
+ <li><strong>Fer (Fe)</strong> — nombreuses raies dans tout le visible</li>
+ </ul>
+
+ <p class="spectro-text">
+ Grâce à l’analyse du spectre, on peut déterminer :
+ </p>
+
+ <ul class="spectro-list">
+ <li>Sa composition chimique</li>
+ <li>Sa température de surface</li>
+ <li>Sa vitesse radiale (effet Doppler)</li>
+ <li>Son stade évolutif</li>
+ </ul>
+
+ <p class="spectro-text">
+ La spectroscopie est un outil fondamental de l’astronomie moderne.
+ Elle nous permet d’étudier la physique de l’Univers à distance, depuis la Terre.
+ À Orion 43, elle est utilisée dans les projets d’observation, de formation et de
+ vulgarisation scientifique.
+ </p>
+
+ </section>
+
+ </main>
+
+ <!-- Footer -->
+ <footer class="footer">
+ <div class="footer-top">
+ <div class="footer-top-left">
+ <a href="../Index.html" class="footer-logo">
+ <img src="../../Image/CharteGraphique/logo blanc.png" alt="Orion 43 Logo">
+ </a>
+ </div>
+ <div class="footer-top-center">
+ <ul class="footer-nav">
+ <li><a href="../Index.html">Accueil</a></li>
+ <li><a href="../Actualites.html">Actualités</a></li>
+ <li><a href="../NosActivites.html">Nos activités</a></li>
+ <li><a href="../NosPhotos.html">Nos photos</a></li>
+ <li><a href="../Contact.html">Contact</a></li>
+ </ul>
+ </div>
+ <div class="footer-top-right">
+ <a href="https://www.facebook.com/43orion/" class="social-link" aria-label="Facebook">
+ <img src="../../Image/LogoRS/facebook.svg" alt="Facebook">
+ </a>
+ <a href="https://x.com/43Orion" class="social-link" aria-label="X">
+ <img src="../../Image/LogoRS/x.svg" alt="X">
+ </a>
+ <a href="https://www.youtube.com/@orionastronomieduvelay1744" class="social-link" aria-label="YouTube">
+ <img src="../../Image/LogoRS/youtube.svg" alt="YouTube">
+ </a>
+ </div>
+ </div>
+
+ <div class="footer-bottom">
+ <p class="footer-copyright">&copy; 2024 Orion 43. Tous droits réservés.</p>
+ <ul class="footer-legal-links">
+ <li><a href="#">Politique de confidentialité</a></li>
+ <li><a href="#">Conditions d'utilisation</a></li>
+ </ul>
+ </div>
+ </footer>
+
+ <!-- Script pour le fond étoilé -->
+ <script type="module" src="../../JS/EtoileFond.js"></script>
+
+ <script>
+ const hamburger = document.querySelector('.hamburger');
+ const navMenu = document.querySelector('.nav-menu');
+
+ hamburger.addEventListener('click', () => {
+ navMenu.classList.toggle('active');
+ hamburger.classList.toggle('active');
+ });
+
+ document.querySelectorAll('.nav-link').forEach(link => {
+ link.addEventListener('click', () => {
+ navMenu.classList.remove('active');
+ hamburger.classList.remove('active');
+ });
+ });
+ </script>
+
+</body>
+</html>
