@@ -83,6 +83,25 @@ html, body {
       color: #f5fc14;
     }
 
+    .nav-link.active {
+      border-bottom: 2px solid #f5fc14;
+      padding-bottom: 4px;
+      border-radius: 25%;
+      position: relative;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 15px;
+      background: linear-gradient(to top, rgba(245, 252, 20, 0.1) 0%, transparent 100%);
+      pointer-events: none;
+      border-radius: 25%;
+    }
+
     /* Menu Hamburger */
     .hamburger {
       display: none;
