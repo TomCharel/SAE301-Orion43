@@ -24,4 +24,17 @@ try {
 } catch (PDOException $e) {
     die("Erreur de connexion : " . $e->getMessage());
 }
+
+//POO
+class Database {
+    private $connection;
+    
+    public function __construct($host, $user, $password, $database) {
+        $this->connection = new mysqli($host, $user, $password, $database);
+    }
+    
+    public function query($sql) {
+        return $this->connection->query($sql);
+    }
+}
 ?>
