@@ -1,6 +1,6 @@
 <?php
 include_once '../PHP/classe_objet/database.php';
-include_once '../PHP/classe_objet/Classe_Categorie.php';
+include_once '../PHP/classe_objet/Categorie.php';
 
 $db = Database::getInstance();
 

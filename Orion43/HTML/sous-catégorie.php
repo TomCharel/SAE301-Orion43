@@ -1,7 +1,7 @@
 <?php
 include_once '../PHP/classe_objet/database.php';
 include_once '../PHP/classe_objet/Photo.php';
-include_once '../PHP/classe_objet/Classe_Categorie.php';
+include_once '../PHP/classe_objet/Categorie.php';
 
 $db = Database::getInstance();
 
@@ -36,7 +36,7 @@ $nomCategorie = !empty($categorie)
 <head>
     <meta charset="UTF-8">
     <title>Photos</title>
-        <link rel="stylesheet" href="../css/styleNosPhotos.css">
+        <link rel="stylesheet" href="../css/stylenosphotos.css">
     <link rel="stylesheet" href="../css/style.css">
     <style>
        

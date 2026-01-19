@@ -34,7 +34,7 @@ if ($type) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion 43 - Nos photos</title>
     <link rel="stylesheet" href="../CSS/style.css">
-        <link rel="stylesheet" href="../CSS/styleNosPhotos.css">
+        <link rel="stylesheet" href="../CSS/stylenosphotos.css">
 </head>
 <body>
     <!-- Navigation -->
