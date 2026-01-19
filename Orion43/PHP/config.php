@@ -10,7 +10,8 @@ define('UPLOAD_DIR', '../images/NosPhotos/');
 define('MAX_FILE_SIZE', 5242880); // 5 MB
 define('ALLOWED_EXTENSIONS', ['jpg', 'jpeg', 'png', 'gif', 'tif', 'tiff']);
 
-// Connexion à la base de données
+// Note : La connexion PDO est maintenant gérée dans la classe Database (classes.php)
+// Pour compatibilité avec l'ancien code, on peut garder cette variable :
 try {
     $pdo = new PDO(
         "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4",
@@ -23,18 +24,5 @@ try {
     );
 } catch (PDOException $e) {
     die("Erreur de connexion : " . $e->getMessage());
-}
-
-//POO
-class Database {
-    private $connection;
-    
-    public function __construct($host, $user, $password, $database) {
-        $this->connection = new mysqli($host, $user, $password, $database);
-    }
-    
-    public function query($sql) {
-        return $this->connection->query($sql);
-    }
 }
 ?>
