@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion 43 - Page d'accueil</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../Image/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../Image/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../Image/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="../Image/favicon_io/site.webmanifest">
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/styleAccueil.css">
 </head>
@@ -152,23 +156,27 @@
         <div class="reservation-container">
             <div class="reservation-content">
                 <h2>Réserver votre place pour les observations publiques</h2>
-                <form class="form-SG" aria-label="Formulaire de réservation">
+                <form class="form-SG" id="reservationForm" aria-label="Formulaire de réservation">
+                    <div id="formMessage" class="form-message" style="display:none;"></div>
+                    
                     <label>Nom
                         <input type="text" name="nom" placeholder="Votre nom" required>
                     </label>
                     <label>Email
                         <input type="email" name="email" placeholder="votre@exemple.com" required>
                     </label>
-                    <label>Date
-                        <input type="date" name="date" required>
+                    <label>Téléphone
+                        <input type="tel" name="telephone" placeholder="06 12 34 56 78" required>
                     </label>
-                    <label>Thème
-                        <select name="theme" required>
-                            <option value="">Choisir un thème</option> 
-                            <option value="observation">Observation du ciel</option>
-                            <option value="atelier">Atelier / Conférence</option>
+                    <label>Nombre de places
+                        <input type="number" name="nb_places" min="1" max="10" value="1" required>
+                    </label>
+                    <label>Événement
+                        <select name="evenement_id" id="evenementSelect" required>
+                            <option value="">Chargement des événements...</option> <!-- liste des évènements gérés via la base de données -->
                         </select>
                     </label>
+                    <div id="evenementDetails" class="evenement-details" style="display:none;"></div>
                     <button type="submit" class="btn-primary">Réserver</button>
                     <div class="form-note">Vous recevrez une confirmation par email.</div>
                 </form>
@@ -176,6 +184,23 @@
 
             <div class="reservation-image">
                 <img src="../Image/imageAccueil/APropos.jpg" alt="Observatoire">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Localisation -->
+    <section class="location-section">
+        <div class="location-container">
+            <h2>Comment nous trouver</h2>
+            <p class="location-address">2164 Le Betz, 43260 Saint-Julien-Chapteuil, France</p>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45000!2d4.0603!3d45.0204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f5e1d5c5c5c5c5%3A0x0!2s2164%20Le%20Betz%2C%2043260%20Saint-Julien-Chapteuil!5e0!3m2!1sfr!2sfr!4v1234567890123!5m2!1sfr!2sfr" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
     </section>
@@ -233,6 +258,9 @@
 
 <!-- Script pour le carrousel des partenaires -->
 <script src="../JS/PartenairesCarousel.js"></script>
+
+<!-- Script pour les réservations -->
+<script src="../JS/Reservation.js"></script>
 
 <script>
     // Menu hamburger

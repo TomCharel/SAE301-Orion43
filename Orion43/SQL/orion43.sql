@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : ven. 16 jan. 2026 à 10:50
+-- Généré le : dim. 18 jan. 2026 à 20:35
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -126,6 +126,15 @@ CREATE TABLE `evenement` (
   `date_event` datetime NOT NULL,
   `max_places` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `evenement`
+--
+
+INSERT INTO `evenement` (`evenement_id`, `titre`, `description`, `date_event`, `max_places`) VALUES
+(1, 'Observation nocturne - Janvier', 'Soirée d\'observation des étoiles et constellations hivernales', '2026-02-15 20:00:00', 30),
+(2, 'Atelier Astrophotographie', 'Apprenez les techniques de photographie astronomique', '2026-02-22 19:00:00', 20),
+(3, 'Observation solaire sécurisée', 'Observation du Soleil avec équipement spécialisé', '2026-03-01 14:00:00', 25);
 
 -- --------------------------------------------------------
 
