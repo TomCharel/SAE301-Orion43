@@ -1,40 +1,30 @@
 <?php
+require_once '../PHP/classe_objet/database.php';
 
-// Détermination du type cliqué
+$db = Database::getInstance();
 $type = $_GET['type'] ?? null;
-
 $categories = [];
 
-if ($type === 'astronomie') {
-    $sql = "SELECT nom, slug FROM categories 
-            WHERE categorie_id IN (1,2,3,4,5,6,8,9,10,11)
-            ORDER BY nom";
-}
-elseif ($type === 'paysages') {
-    $sql = "SELECT nom, slug FROM categories 
-            WHERE categorie_id IN (12,13,14,15,16,17,18,19)
-            ORDER BY nom";
-}
-elseif ($type === 'techniques') {
-    $sql = "SELECT nom, slug FROM categories 
-            WHERE categorie_id IN (20,21)
-            ORDER BY nom";
-}
+$map = [
+    'astronomie' => [1,2,3,4,5,6,8,9,10,11],
+    'paysages'   => [12,13,14,15,16,17,18,19],
+    'techniques' => [20,21]
+];
 
-if ($type) {
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
+if ($type && isset($map[$type])) {
+    $ids = implode(',', $map[$type]);
+    $sql = "SELECT categorie_id, nom FROM categorie_photo WHERE categorie_id IN ($ids) ORDER BY nom";
+    $categories = $db->getObjects($sql, 'Categorie');
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orion 43 - Nos photos</title>
     <link rel="stylesheet" href="../CSS/style.css">
-        <link rel="stylesheet" href="../CSS/stylenosphotos.css">
+    <link rel="stylesheet" href="../CSS/stylenosphotos.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -50,9 +40,9 @@ if ($type) {
             </div>
             <ul class="nav-menu">
                 <li><a href="Index.html" class="nav-link">Accueil</a></li>
-                <li><a href="Actualites.html" class="nav-link">Actualités</a></li>
-                <li><a href="NosActivites.html" class="nav-link">Nos activités</a></li>
-                <li><a href="NosPhotos.html" class="nav-link">Nos photos</a></li>
+                <li><a href="actualites_poo.php" class="nav-link">Actualités</a></li>
+                <li><a href="nosActivites_poo.php" class="nav-link">Nos activités</a></li>
+                <li><a href="NosPhotos.php" class="nav-link">Nos photos</a></li>
                 <li><a href="Contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -60,26 +50,35 @@ if ($type) {
 
     <canvas id="space"></canvas>
 
-<div class="page">
+    <div class="page">
+        <a href="?type=astronomie" class="bande astronomie">
+            <strong>ASTRONOMIE</strong>
+        </a>
 
-  <a href="catégories.php?type=astronomie" class="bande astronomie">
-    <strong>ASTRONOMIE</strong>
-  </a>
+        <a href="?type=paysages" class="bande paysages">
+            <strong>PAYSAGES ET CIEL</strong>
+        </a>
 
-  <a href="catégories.php?type=paysages" class="bande paysages">
-    <strong>PAYSAGES ET CIEL</strong>
-  </a>
+        <a href="?type=techniques" class="bande techniques">
+            <strong>TECHNIQUES</strong>
+        </a>
+    </div>
 
-  <a href="catégories.php?type=techniques" class="bande techniques">
-    <strong>TECHNIQUES</strong>
-  </a>
-
-</div>
-
+    <?php if ($type && !empty($categories)): ?>
+    <div class="categories-container">
+        <h2><?= strtoupper(htmlspecialchars($type)) ?></h2>
+        <div class="categories-grid">
+            <?php foreach ($categories as $cat): ?>
+            <a class="category-card" href="sous-categorie.php?categorie=<?= $cat->getId() ?>">
+                <span class="category-title"><?= htmlspecialchars($cat->getNom()) ?></span>
+            </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php endif; ?>
 
     <!-- Footer -->
     <footer class="footer">
-        <!-- Première ligne du footer -->
         <div class="footer-top">
             <div class="footer-top-left">
                 <a href="Index.html" class="footer-logo">
@@ -89,26 +88,25 @@ if ($type) {
             <div class="footer-top-center">
                 <ul class="footer-nav">
                     <li><a href="Index.html">Accueil</a></li>
-                    <li><a href="Actualites.html">Actualités</a></li>
-                    <li><a href="NosActivites.html">Nos activités</a></li>
-                    <li><a href="NosPhotos.html">Nos photos</a></li>
+                    <li><a href="actualites_poo.php">Actualités</a></li>
+                    <li><a href="nosActivites_poo.php">Nos activités</a></li>
+                    <li><a href="NosPhotos.php">Nos photos</a></li>
                     <li><a href="Contact.html">Contact</a></li>
                 </ul>
             </div>
-             <div class="footer-top-right">
+            <div class="footer-top-right">
                 <a href="https://www.facebook.com/43orion/" class="social-link" aria-label="Facebook">
                     <img src="../Image/LogoRS/facebook.svg" alt="Facebook">
                 </a>
                 <a href="https://x.com/43Orion" class="social-link" aria-label="X">
                     <img src="../Image/LogoRS/x.svg" alt="X">
                 </a>
-                <a href="www.youtube.com/@orionastronomieduvelay1744" class="social-link" aria-label="YouTube">
+                <a href="https://www.youtube.com/@orionastronomieduvelay1744" class="social-link" aria-label="YouTube">
                     <img src="../Image/LogoRS/youtube.svg" alt="YouTube">
                 </a>
             </div>
         </div>
 
-        <!-- Deuxième ligne du footer -->
         <div class="footer-bottom">
             <p class="footer-copyright">&copy; 2024 Orion 43. Tous droits réservés.</p>
             <ul class="footer-legal-links">
@@ -117,32 +115,24 @@ if ($type) {
             </ul>
         </div>
     </footer>
-</body>
 
-  <!-- Script pour le fond étoilé -->
-<script type="module" src="../JS/EtoileFond.js"></script>
+    <script type="module" src="../JS/EtoileFond.js"></script>
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
 
-<script>
-    // Menu hamburger
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-
-    hamburger.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    });
-
-    // Fermer le menu au clic sur un lien
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
         });
-    });
-</script>
+
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    </script>
+</body>
 </html>
-
-
-
-

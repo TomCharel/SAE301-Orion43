@@ -1,9 +1,8 @@
 <?php
-include_once '../PHP/classe_objet/database.php';
-include_once '../PHP/classe_objet/Categorie.php';
+require_once '../PHP/classe_objet/database.php';
+require_once '../PHP/classe_objet/Categorie.php';
 
 $db = Database::getInstance();
-
 $type = $_GET['type'] ?? null;
 $categories = [];
 
@@ -15,27 +14,19 @@ $map = [
 
 if (isset($map[$type])) {
     $ids = implode(',', $map[$type]);
-
-    $sql = "SELECT categorie_id, nom, slug
-            FROM categorie_photo
-            WHERE categorie_id IN ($ids)
-            ORDER BY nom";
-
+    $sql = "SELECT categorie_id, nom FROM categorie_photo WHERE categorie_id IN ($ids) ORDER BY nom";
     $categories = $db->getObjects($sql, 'Categorie');
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Sous-catégories</title>
+    <title>Orion 43 - <?= strtoupper(htmlspecialchars($type ?? '')) ?></title>
     <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../css/stylenosphotos.css">
+    <link rel="stylesheet" href="../CSS/stylenosphotos.css">
 </head>
 <body>
- <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="Index.html" class="logo">
@@ -48,44 +39,29 @@ if (isset($map[$type])) {
             </div>
             <ul class="nav-menu">
                 <li><a href="Index.html" class="nav-link">Accueil</a></li>
-                <li><a href="Actualites.html" class="nav-link">Actualités</a></li>
-                <li><a href="NosActivites.html" class="nav-link">Nos activités</a></li>
-                <li><a href="NosPhotos.html" class="nav-link">Nos photos</a></li>
+                <li><a href="actualites_poo.php" class="nav-link">Actualités</a></li>
+                <li><a href="nosActivites_poo.php" class="nav-link">Nos activités</a></li>
+                <li><a href="NosPhotos.php" class="nav-link">Nos photos</a></li>
                 <li><a href="Contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <canvas id="space"></canvas>
-<h1>
-    <?= strtoupper(htmlspecialchars($type)) ?>
-</h1>
 
-<main class="main-content">
-<div class="categories-grid">
-<?php foreach ($categories as $cat): ?>
-    <a class="category-card"
-       href="sous-catégorie.php?categorie=<?= $cat->getId() ?>">
-        <span class="category-title">
-            <?= htmlspecialchars($cat->getNom()) ?>
-        </span>
-    </a>
-<?php endforeach; ?>
+    <main class="main-content">
+        <h1><?= strtoupper(htmlspecialchars($type ?? '')) ?></h1>
 
-</div>
+        <div class="categories-grid">
+            <?php foreach ($categories as $cat): ?>
+            <a class="category-card" href="sous-categorie.php?categorie=<?= $cat->getId() ?>">
+                <span class="category-title"><?= htmlspecialchars($cat->getNom()) ?></span>
+            </a>
+            <?php endforeach; ?>
+        </div>
+    </main>
 
-
-    </div>
-
-</main>
-
-</body>
-
-  <!-- Script pour le fond étoilé -->
-<script type="module" src="../JS/EtoileFond.js"></script>
- <!-- Footer -->
     <footer class="footer">
-        <!-- Première ligne du footer -->
         <div class="footer-top">
             <div class="footer-top-left">
                 <a href="Index.html" class="footer-logo">
@@ -95,26 +71,24 @@ if (isset($map[$type])) {
             <div class="footer-top-center">
                 <ul class="footer-nav">
                     <li><a href="Index.html">Accueil</a></li>
-                    <li><a href="Actualites.html">Actualités</a></li>
-                    <li><a href="NosActivites.html">Nos activités</a></li>
-                    <li><a href="NosPhotos.html">Nos photos</a></li>
+                    <li><a href="actualites_poo.php">Actualités</a></li>
+                    <li><a href="nosActivites_poo.php">Nos activités</a></li>
+                    <li><a href="NosPhotos.php">Nos photos</a></li>
                     <li><a href="Contact.html">Contact</a></li>
                 </ul>
             </div>
-             <div class="footer-top-right">
+            <div class="footer-top-right">
                 <a href="https://www.facebook.com/43orion/" class="social-link" aria-label="Facebook">
                     <img src="../Image/LogoRS/facebook.svg" alt="Facebook">
                 </a>
                 <a href="https://x.com/43Orion" class="social-link" aria-label="X">
                     <img src="../Image/LogoRS/x.svg" alt="X">
                 </a>
-                <a href="www.youtube.com/@orionastronomieduvelay1744" class="social-link" aria-label="YouTube">
+                <a href="https://www.youtube.com/@orionastronomieduvelay1744" class="social-link" aria-label="YouTube">
                     <img src="../Image/LogoRS/youtube.svg" alt="YouTube">
                 </a>
             </div>
         </div>
-
-        <!-- Deuxième ligne du footer -->
         <div class="footer-bottom">
             <p class="footer-copyright">&copy; 2024 Orion 43. Tous droits réservés.</p>
             <ul class="footer-legal-links">
@@ -123,5 +97,7 @@ if (isset($map[$type])) {
             </ul>
         </div>
     </footer>
-</html>
 
+    <script type="module" src="../JS/EtoileFond.js"></script>
+</body>
+</html>
