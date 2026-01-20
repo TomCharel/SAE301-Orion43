@@ -65,7 +65,7 @@ if (isset($map[$type])) {
 
         <div class="categories-grid">
             <?php foreach ($categories as $cat): ?>
-            <a class="category-card" href="sous-categorie.php?categorie=<?= $cat->getId() ?>">
+            <a class="category-card" href="sous-catégorie.php?categorie=<?= $cat->getId() ?>">
                 <span class="category-title"><?= htmlspecialchars($cat->getNom()) ?></span>
             </a>
             <?php endforeach; ?>

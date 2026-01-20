@@ -63,15 +63,15 @@ if ($type && isset($map[$type])) {
     <canvas id="space"></canvas>
 
     <div class="page">
-        <a href="?type=astronomie" class="bande astronomie">
+        <a href="catégories.php?type=astronomie" class="bande astronomie">
             <strong>ASTRONOMIE</strong>
         </a>
 
-        <a href="?type=paysages" class="bande paysages">
+        <a href="catégories.php?type=paysages" class="bande paysages">
             <strong>PAYSAGES ET CIEL</strong>
         </a>
 
-        <a href="?type=techniques" class="bande techniques">
+        <a href="catégories.php?type=techniques" class="bande techniques">
             <strong>TECHNIQUES</strong>
         </a>
     </div>

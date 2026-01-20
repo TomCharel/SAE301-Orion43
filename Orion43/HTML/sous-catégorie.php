@@ -14,12 +14,21 @@ if (!$categorie_id) {
 if (isset($_GET['ajax']) && $_GET['ajax'] === '1') {
     header('Content-Type: application/json');
     
+    $limit = intval($_GET['limit'] ?? 12);
+    $offset = intval($_GET['offset'] ?? 0);
+    
     $sql = "SELECT photo_id, url, titre, infos_techniques, date_prise
             FROM photo
             WHERE categorie_id = :id
-            ORDER BY photo_id DESC";
+            ORDER BY photo_id DESC
+            LIMIT :limit OFFSET :offset";
     
-    $photos = $db->getObjects($sql, 'Photo', [':id' => $categorie_id]);
+    $stmt = $db->pdo->prepare($sql);
+    $stmt->bindValue(':id', $categorie_id, PDO::PARAM_INT);
+    $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+    $photos = $stmt->fetchAll(PDO::FETCH_CLASS, 'Photo');
     
     $result = [];
     foreach ($photos as $photo) {
@@ -89,6 +98,10 @@ $nomCategorie = !empty($categorie) ? $categorie[0]->getNom() : 'Galerie';
         <div id="photos-container">
             <div class="loading">Chargement des photos...</div>
         </div>
+        
+        <button id="load-more-btn" style="display:none; margin: 30px auto; padding: 12px 30px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+            Charger plus de photos
+        </button>
     </main>
 
     <footer class="footer">
@@ -138,34 +151,75 @@ $nomCategorie = !empty($categorie) ? $categorie[0]->getNom() : 'Galerie';
             return date.toLocaleDateString('fr-FR');
         }
 
+        // Constantes pour la pagination
+        const PHOTOS_PAR_PAGE = 12;
+        let photosActuelles = 0;
+        let toutesPhotosChargees = false;
+
         // Chargement des photos via AJAX
-        function loadPhotos() {
+        function loadPhotos(append = false) {
             const categorieId = <?= json_encode($categorie_id) ?>;
             const container = document.getElementById('photos-container');
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            
+            console.log('Chargement des photos pour la catégorie:', categorieId);
 
-            fetch(`?categorie=${categorieId}&ajax=1`)
+            fetch(`sous-catégorie.php?categorie=${categorieId}&ajax=1&offset=${photosActuelles}&limit=${PHOTOS_PAR_PAGE}`)
                 .then(response => {
-                    if (!response.ok) throw new Error('Erreur réseau');
+                    console.log('Réponse:', response.status);
+                    if (!response.ok) throw new Error('Erreur réseau: ' + response.status);
                     return response.json();
                 })
                 .then(photos => {
+                    // Si c'est le premier chargement et pas d'append
+                    if (!append) {
+                        container.innerHTML = '';
+                    }
+                    
                     if (photos.length === 0) {
-                        container.innerHTML = '<p style="text-align: center; padding: 2rem;">Aucune photo dans cette catégorie.</p>';
+                        if (photosActuelles === 0) {
+                            container.innerHTML = '<p style="text-align: center; padding: 2rem;">Aucune photo dans cette catégorie.</p>';
+                        }
+                        toutesPhotosChargees = true;
+                        loadMoreBtn.style.display = 'none';
                         return;
                     }
 
-                    const grid = document.createElement('div');
-                    grid.className = 'grid';
+                    const grid = append ? container.querySelector('.grid') : document.createElement('div');
+                    if (!append) {
+                        grid.className = 'grid';
+                    }
 
                     photos.forEach(photo => {
                         const card = document.createElement('div');
                         card.className = 'card';
 
                         const img = document.createElement('img');
-                        img.src = '../' + photo.url;
+                        // Construire le chemin correctement
+                        let imagePath = photo.url;
+                        console.log('URL brute de la BD:', imagePath);
+                        
+                        // Supprimer le préfixe "images/" s'il existe
+                        if (imagePath.startsWith('images/')) {
+                            imagePath = imagePath.substring(7); // Enlever "images/"
+                        }
+                        
+                        // Ajouter le chemin relatif
+                        imagePath = '../Image/' + imagePath;
+                        
+                        console.log('Chemin final:', imagePath);
+                        
+                        img.src = imagePath;
                         img.alt = photo.titre || 'Photo astronomie';
+                        
+                        // Gestion des erreurs - ne charger qu'une fois
+                        let errorAttempted = false;
                         img.onerror = function() {
-                            this.src = '../Image/placeholder.jpg';
+                            if (!errorAttempted) {
+                                errorAttempted = true;
+                                console.warn('Image non trouvée:', imagePath);
+                                this.src = '../Image/ImageSite/logo/logo.png'; // Fallback simple
+                            }
                         };
 
                         const overlay = document.createElement('div');
@@ -189,8 +243,20 @@ $nomCategorie = !empty($categorie) ? $categorie[0]->getNom() : 'Galerie';
                         grid.appendChild(card);
                     });
 
-                    container.innerHTML = '';
-                    container.appendChild(grid);
+                    if (!append) {
+                        container.appendChild(grid);
+                    }
+                    
+                    // Mettre à jour le compteur
+                    photosActuelles += photos.length;
+                    
+                    // Afficher le bouton si moins de photos que demandé (toutes chargées)
+                    if (photos.length < PHOTOS_PAR_PAGE) {
+                        toutesPhotosChargees = true;
+                        loadMoreBtn.style.display = 'none';
+                    } else {
+                        loadMoreBtn.style.display = 'block';
+                    }
                 })
                 .catch(error => {
                     console.error('Erreur:', error);
@@ -199,7 +265,19 @@ $nomCategorie = !empty($categorie) ? $categorie[0]->getNom() : 'Galerie';
         }
 
         // Charger les photos au chargement de la page
-        document.addEventListener('DOMContentLoaded', loadPhotos);
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPhotos(false);
+            
+            // Event listener pour le bouton "Charger plus"
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            loadMoreBtn.addEventListener('click', () => {
+                loadMoreBtn.disabled = true;
+                loadMoreBtn.textContent = 'Chargement...';
+                loadPhotos(true);
+                loadMoreBtn.disabled = false;
+                loadMoreBtn.textContent = 'Charger plus de photos';
+            });
+        });
 
         // Menu hamburger
         const hamburger = document.querySelector('.hamburger');
