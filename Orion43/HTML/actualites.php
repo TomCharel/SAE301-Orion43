@@ -46,7 +46,7 @@ $articles = $pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="Index.html" class="logo">
+            <a href="Index.php" class="logo">
                 <img src="../Image/CharteGraphique/logo blanc.png" alt="Orion 43 Logo">
             </a>
             <div class="hamburger">
@@ -55,7 +55,7 @@ $articles = $pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
                 <span></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="Index.html" class="nav-link">Accueil</a></li>
+                <li><a href="Index.php" class="nav-link">Accueil</a></li>
                 <li><a href="actualites.php" class="nav-link">Actualités</a></li>
                 <li class="nav-item">
                     <a href="NosActivites.html" class="nav-link">Nos activités</a>
@@ -132,13 +132,13 @@ $articles = $pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
         <!-- Première ligne du footer -->
         <div class="footer-top">
             <div class="footer-top-left">
-                <a href="Index.html" class="footer-logo">
+                <a href="Index.php" class="footer-logo">
                     <img src="../Image/CharteGraphique/logo blanc.png" alt="Orion 43 Logo">
                 </a>
             </div>
             <div class="footer-top-center">
                 <ul class="footer-nav">
-                    <li><a href="Index.html">Accueil</a></li>
+                    <li><a href="Index.php">Accueil</a></li>
                     <li><a href="actualites.php">Actualités</a></li>
                     <li><a href="NosActivites.html">Nos activités</a></li>
                     <li><a href="NosPhotos.php">Nos photos</a></li>
@@ -173,5 +173,25 @@ $articles = $pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
 
     <!-- Script pour mettre en évidence le lien actif de la navigation -->
     <script src="../JS/ActiveNavLink.js"></script>
+
+    <script>
+        // Menu hamburger
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Fermer le menu au clic sur un lien
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

@@ -137,6 +137,8 @@
 
 /* CARTE */
 .category-card {
+  display: block;
+  width: 100%;
   position: relative;
   height: 260px;
   border-radius: 18px;

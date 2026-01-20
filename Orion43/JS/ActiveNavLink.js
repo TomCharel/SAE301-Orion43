@@ -6,7 +6,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Récupérer l'URL actuelle et extraire le nom du fichier
     const currentLocation = location.pathname;
-    const currentFileName = currentLocation.split('/').pop() || 'Index.html';
+    // Treat index.* as equivalent so highlighting works for html/php
+    const currentFileName = currentLocation.split('/').pop() || 'Index.php';
+    const currentBase = currentFileName.split('.')[0].toLowerCase();
     
     // Récupérer tous les liens de navigation
     const navLinks = document.querySelectorAll('.nav-link');
@@ -18,9 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Extraire le nom de fichier du href
         const linkFileName = linkHref.split('/').pop();
+        const linkBase = (linkFileName || '').split('.')[0].toLowerCase();
         
-        // Comparer les noms de fichiers (insensible à la casse)
-        if (linkFileName.toLowerCase() === currentFileName.toLowerCase()) {
+        // Compare by basename to handle index.html vs index.php
+        if (linkBase === currentBase) {
             link.classList.add('active');
         } else {
             link.classList.remove('active');

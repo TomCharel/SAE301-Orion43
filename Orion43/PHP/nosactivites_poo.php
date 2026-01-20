@@ -96,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reserver'])) {
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <a href="Index.html" class="logo">
+            <a href="Index.php" class="logo">
                 <img src="../Image/CharteGraphique/logo blanc.png" alt="Orion 43 Logo">
             </a>
             <div class="hamburger">
@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reserver'])) {
                 <span></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="Index.html" class="nav-link">Accueil</a></li>
+                <li><a href="Index.php" class="nav-link">Accueil</a></li>
                 <li><a href="Actualites.php" class="nav-link">Actualités</a></li>
                 <li><a href="NosActivites.php" class="nav-link">Nos activités</a></li>
                 <li><a href="NosPhotos.html" class="nav-link">Nos photos</a></li>
@@ -267,13 +267,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reserver'])) {
     <footer class="footer">
         <div class="footer-top">
             <div class="footer-top-left">
-                <a href="Index.html" class="footer-logo">
+                <a href="Index.php" class="footer-logo">
                     <img src="../Image/CharteGraphique/logo blanc.png" alt="Orion 43 Logo">
                 </a>
             </div>
             <div class="footer-top-center">
                 <ul class="footer-nav">
-                    <li><a href="Index.html">Accueil</a></li>
+                    <li><a href="Index.php">Accueil</a></li>
                     <li><a href="Actualites.php">Actualités</a></li>
                     <li><a href="NosActivites.php">Nos activités</a></li>
                     <li><a href="NosPhotos.html">Nos photos</a></li>
