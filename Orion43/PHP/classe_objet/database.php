@@ -2,7 +2,7 @@
 class Database {
 
     private static $instance = null;
-    private $pdo;
+    public $pdo;
 
     private function __construct() {
         try {

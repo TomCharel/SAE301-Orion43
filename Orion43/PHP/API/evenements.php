@@ -1,10 +1,9 @@
 <?php
 // Petite API : ce fichier ne renvoie pas de HTML mais des données JSON pour le front
 // (ex: le script JS charge les événements et les affiche côté navigateur).
-include '../config/bdd.php';
+include '../../PHP/classe_objet/database.php';
 
-// On indique au client que la réponse sera du JSON (convention d'une API web simple)
-header('Content-Type: application/json');
+$pdo = Database::getInstance()->pdo;
 
 try {
     // Récupérer les événements futurs avec les places disponibles (logique métier côté serveur)

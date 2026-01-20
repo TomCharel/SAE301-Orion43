@@ -38,7 +38,7 @@ $articlesEpingles = $articleManager->getEpingles();
                 <li><a href="Index.html" class="nav-link">Accueil</a></li>
                 <li><a href="Actualites.php" class="nav-link">Actualités</a></li>
                 <li><a href="NosActivites.php" class="nav-link">Nos activités</a></li>
-                <li><a href="NosPhotos.html" class="nav-link">Nos photos</a></li>
+                <li><a href="NosPhotos.php" class="nav-link">Nos photos</a></li>
                 <li><a href="Contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -111,7 +111,7 @@ $articlesEpingles = $articleManager->getEpingles();
                     <li><a href="Index.html">Accueil</a></li>
                     <li><a href="Actualites.php">Actualités</a></li>
                     <li><a href="NosActivites.php">Nos activités</a></li>
-                    <li><a href="NosPhotos.html">Nos photos</a></li>
+                    <li><a href="NosPhotos.php">Nos photos</a></li>
                     <li><a href="Contact.html">Contact</a></li>
                 </ul>
             </div>

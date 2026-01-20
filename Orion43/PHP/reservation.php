@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once 'config/bdd.php';
+require_once 'classe_objet/database.php';
 
-header('Content-Type: application/json');
+$pdo = Database::getInstance()->pdo;
 
 // Vérifier que c'est une requête POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
