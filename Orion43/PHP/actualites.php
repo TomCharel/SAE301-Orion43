@@ -15,7 +15,7 @@ $actuvariable = $pdo->query("SELECT * FROM article ORDER BY article_id Asc")->fe
     <link rel="icon" type="image/png" sizes="16x16" href="../Image/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="../Image/favicon_io/site.webmanifest">
     <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/actualiter.css">
+    <link rel="stylesheet" href="../CSS/actualites.css">
 </head>
 <body>
     <!-- Navigation -->
