@@ -434,8 +434,8 @@
     /* Lisibilité du menu déroulant: options en texte foncé sur fond clair */
     .form-SG select option,
     .form-SG select optgroup {
-      color: #000;
-      background-color: #fff;
+      color: #ffffff;
+      background-color: #000000;
     }
 
     .form-SG input::placeholder {

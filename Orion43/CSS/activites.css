@@ -63,6 +63,12 @@
     min-height: auto;
 }
 
+.form-SG select option,
+.form-SG select optgroup {
+    color: #ffffff;
+    background-color: #000000;
+}
+
 .form-container.SG {
     flex: 1 1 48%;
     display: flex;

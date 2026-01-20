@@ -61,23 +61,27 @@
         <section class="reservation SG">
             <div class="form-container SG">
                 <h2>Réserver votre place pour les observations publiques</h2>
-                <form class="form-SG" aria-label="Formulaire de réservation">
+                <form class="form-SG" id="reservationForm" aria-label="Formulaire de réservation">
+                    <div id="formMessage" class="form-message" style="display:none;"></div>
+                    
                     <label>Nom
                         <input type="text" name="nom" placeholder="Votre nom" required>
                     </label>
                     <label>Email
                         <input type="email" name="email" placeholder="votre@exemple.com" required>
                     </label>
-                    <label>Date
-                        <input type="date" name="date" required>
+                    <label>Téléphone
+                        <input type="tel" name="telephone" placeholder="06 12 34 56 78" required>
                     </label>
-                    <label>Thème
-                        <select name="theme" required>
-                            <option value="">Choisir un thème</option>
-                            <option value="observation">Observation du ciel</option>
-                            <option value="atelier">Atelier / Conférence</option>
+                    <label>Nombre de places
+                        <input type="number" name="nb_places" min="1" max="10" value="1" required>
+                    </label>
+                    <label>Événement
+                        <select name="evenement_id" id="evenementSelect" required>
+                            <option value="">Chargement des événements...</option>
                         </select>
                     </label>
+                    <div id="evenementDetails" class="evenement-details" style="display:none;"></div>
                     <button type="submit" class="btn-primary">Réserver</button>
                     <div class="form-note">Vous recevrez une confirmation par email.</div>
                 </form>
@@ -192,6 +196,9 @@
 
     <!-- Script pour mettre en évidence le lien actif de la navigation -->
     <script src="../JS/ActiveNavLink.js"></script>
+    
+    <!-- Script pour le formulaire de réservation dynamique -->
+    <script src="../JS/Reservation.js"></script>
 
     <script>
         const hamburger = document.querySelector('.hamburger');
