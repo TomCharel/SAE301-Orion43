@@ -61,7 +61,7 @@ if ($type && isset($map[$type])) {
     </nav>
 
     <canvas id="space"></canvas>
-
+    Nos Photos
     <div class="page">
         <a href="?type=astronomie" class="bande astronomie">
             <strong>ASTRONOMIE</strong>

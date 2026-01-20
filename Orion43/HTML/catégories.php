@@ -12,11 +12,42 @@ $map = [
     'techniques' => [20,21]
 ];
 
+$backgrounds = [
+    1  => 'lune_001.jpg',
+    2  => 'soleil_001.png',
+    3  => 'mars_001.png',
+    4  => 'jupiter_002.jpg',
+    5  => 'saturne_002.jpg',
+    6  => 'nebuleuse_001.jpg',
+    8  => 'nebuleuse_anulaire.jpg',
+    9  => 'galaxie_001.jpg',
+    10 => 'amas_globulaire_001.jpg',
+    11 => 'cometes_001.jpg',
+
+    12 => 'voie_lactee_001.jpg',
+    13 => 'circumpolaire_001.jpg',
+    14 => 'arc_en_ciel_001.jpg',
+    15 => 'nuage_irise_001.jpg',
+    16 => 'etoiles_001.jpg',
+    17 => 'conjonction_001.jpg',
+    18 => 'coucher_soleil_001.jpg',
+    19 => 'grands_champ_001.jpg',
+
+    20 => 'time_lapse_001.gif',
+    21 => 'spectro_001.jpg'
+];
+
 if (isset($map[$type])) {
     $ids = implode(',', $map[$type]);
-    $sql = "SELECT categorie_id, nom FROM categorie_photo WHERE categorie_id IN ($ids) ORDER BY nom";
+
+    $sql = "SELECT categorie_id, nom, slug
+            FROM categorie_photo
+            WHERE categorie_id IN ($ids)
+            ORDER BY nom";
+
     $categories = $db->getObjects($sql, 'Categorie');
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -63,12 +94,21 @@ if (isset($map[$type])) {
     <main class="main-content">
         <h1><?= strtoupper(htmlspecialchars($type ?? '')) ?></h1>
 
-        <div class="categories-grid">
-            <?php foreach ($categories as $cat): ?>
-            <a class="category-card" href="sous-categorie.php?categorie=<?= $cat->getId() ?>">
-                <span class="category-title"><?= htmlspecialchars($cat->getNom()) ?></span>
-            </a>
-            <?php endforeach; ?>
+    <?php foreach ($categories as $cat):
+        $id = $cat->getId();
+        $bg = $backgrounds[$id] ?? 'default.jpg';
+    ?>
+        <a href="sous-catégorie.php?categorie=<?= $id ?>"
+           class="category-card"
+           style="background-image: url('../Image/categories/<?= $bg ?>');">
+
+            <div class="overlay"></div>
+
+            <span class="category-title">
+                <?= htmlspecialchars($cat->getNom()) ?>
+            </span>
+        </a>
+    <?php endforeach; ?>
         </div>
     </main>
 
