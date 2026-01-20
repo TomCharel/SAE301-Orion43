@@ -39,8 +39,19 @@ if (isset($map[$type])) {
             </div>
             <ul class="nav-menu">
                 <li><a href="Index.html" class="nav-link">Accueil</a></li>
-                <li><a href="actualites_poo.php" class="nav-link">Actualités</a></li>
-                <li><a href="nosActivites_poo.php" class="nav-link">Nos activités</a></li>
+                <li><a href="actualites.php" class="nav-link">Actualités</a></li>
+                <li class="nav-item">
+                    <a href="NosActivites.html" class="nav-link">Nos activités</a>
+                    <div class="dropdown-menu">
+                        <a href="activiteslien/astrophotographie.html">Astrophotographie</a>
+                        <a href="activiteslien/conferences.html">Conférences</a>
+                        <a href="activiteslien/jeuneorion.html">Jeune Orion</a>
+                        <a href="activiteslien/observation.html">Observation</a>
+                        <a href="activiteslien/observationsolaire.html">Observation Solaire</a>
+                        <a href="activiteslien/soireepublique.html">Soirée Publique</a>
+                        <a href="activiteslien/spectrologie.html">Spectrologie</a>
+                    </div>
+                </li>
                 <li><a href="NosPhotos.php" class="nav-link">Nos photos</a></li>
                 <li><a href="Contact.html" class="nav-link">Contact</a></li>
             </ul>
@@ -71,8 +82,8 @@ if (isset($map[$type])) {
             <div class="footer-top-center">
                 <ul class="footer-nav">
                     <li><a href="Index.html">Accueil</a></li>
-                    <li><a href="actualites_poo.php">Actualités</a></li>
-                    <li><a href="nosActivites_poo.php">Nos activités</a></li>
+                    <li><a href="actualites.php">Actualités</a></li>
+                    <li><a href="NosActivites.html">Nos activités</a></li>
                     <li><a href="NosPhotos.php">Nos photos</a></li>
                     <li><a href="Contact.html">Contact</a></li>
                 </ul>
@@ -99,5 +110,6 @@ if (isset($map[$type])) {
     </footer>
 
     <script type="module" src="../JS/EtoileFond.js"></script>
+    <script src="../JS/ActiveNavLink.js"></script>
 </body>
 </html>
