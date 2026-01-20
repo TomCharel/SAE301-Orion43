@@ -26,11 +26,11 @@ $actuvariable = $pdo->query("SELECT * FROM article ORDER BY article_id Asc")->fe
                 <span></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="Index.html" class="nav-link">Accueil</a></li>
-                <li><a href="Actualites.html" class="nav-link">Actualités</a></li>
-                <li><a href="NosActivites.html" class="nav-link">Nos activités</a></li>
-                <li><a href="NosPhotos.html" class="nav-link">Nos photos</a></li>
-                <li><a href="Contact.html" class="nav-link">Contact</a></li>
+                <li><a href="Index.html" class="../HTML/Index.html">Accueil</a></li>
+                <li><a href="Actualites.html" class="actualites.php">Actualités</a></li>
+                <li><a href="NosActivites.html" class="../HTML/NosActivites.html">Nos activités</a></li>
+                <li><a href="NosPhotos.html" class="../HTML/NosPhotos.html">Nos photos</a></li>
+                <li><a href="Contact.html" class="../HTML/Contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
