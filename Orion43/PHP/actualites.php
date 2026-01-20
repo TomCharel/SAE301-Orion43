@@ -69,11 +69,11 @@ $actuvariable = $pdo->query("SELECT * FROM article ORDER BY article_id Asc")->fe
             </div>
             <div class="footer-top-center">
                 <ul class="footer-nav">
-                    <li><a href="Index.html">Accueil</a></li>
-                    <li><a href="Actualites.html">Actualités</a></li>
-                    <li><a href="NosActivites.html">Nos activités</a></li>
-                    <li><a href="NosPhotos.html">Nos photos</a></li>
-                    <li><a href="Contact.html">Contact</a></li>
+                    <li><a href="../HTML/Index.html">Accueil</a></li>
+                    <li><a href="actualites.php">Actualités</a></li>
+                    <li><a href="../HTML/NosActivites.html">Nos activités</a></li>
+                    <li><a href="../HTML/NosPhotos.html">Nos photos</a></li>
+                    <li><a href="../HTML/Contact.html">Contact</a></li>
                 </ul>
             </div>
              <div class="footer-top-right">
