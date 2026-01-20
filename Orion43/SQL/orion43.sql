@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 18 jan. 2026 à 20:35
+-- Généré le : mar. 20 jan. 2026 à 11:29
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -40,6 +40,7 @@ CREATE TABLE `admin` (
 --
 
 CREATE TABLE `article` (
+  `photo` varchar(255) NOT NULL,
   `article_id` int(11) NOT NULL,
   `titre` varchar(255) NOT NULL,
   `slug` varchar(255) NOT NULL,
@@ -52,21 +53,21 @@ CREATE TABLE `article` (
 -- Déchargement des données de la table `article`
 --
 
-INSERT INTO `article` (`article_id`, `titre`, `slug`, `contenu`, `date_publication`, `epingle`) VALUES
-(1, 'Aurores polaires', 'aurores-polaires', 'La nuit du 11 au 12 novembre nous a réservé une belle surprise : malgré un ciel partiellement couvert, nous avons réussi à capturer une superbe aurore boréale.', '2025-01-01 00:00:00', 0),
-(2, 'Comète C/2025 A6 (Lemmon)', 'comete-c-2025-a6-lemmon', 'Voici deux magnifiques images de cette comète, capturées par Bernard au cours du mois d\'octobre, lorsqu\'elle était observable avec des jumelles ou un télescope.', '2025-01-01 00:00:00', 0),
-(3, 'Nouveau président', 'nouveau-president', 'C\'est avec plaisir que nous vous annonçons l\'élection de Daniel Vincent à la présidence de notre Club lors de la dernière assemblée générale. Une nouvelle étape pour notre projet commun !', '2025-01-01 00:00:00', 0),
-(4, 'Dimanche 5 octobre', 'dimanche-5-octobre', 'Le Club Orion était présent à la Fête de la Science organisée au Musée Crozatier. L\'occasion de rappeler que curiosité, soif de découverte et intelligence sont les clés qui nous ont permis d\'atteindre nos connaissances actuelles sur les astres et l\'Univers.', '2025-01-01 00:00:00', 0),
-(5, 'Eclipse de lune du 7 septembre', 'eclipse-de-lune-du-7-septembre', 'Les membres du club ont capturé de magnifiques images. (image)', '2025-01-01 00:00:00', 0),
-(6, 'Orion a fêté ses 30 ans', 'orion-a-fete-ses-30-ans', 'Ce samedi ensoleillé a rassemblé la grande famille d\'Orion : membres actuels et anciens, fidèles sympathisants et invités, pour une rencontre placée sous le signe de l\'amitié et de la convivialité. De magnifiques diaporamas ont permis de revivre les belles années passées ensemble, avant de conclure la soirée par une séance d\'observation du ciel, comme il se doit.', '2025-01-01 00:00:00', 0),
-(7, 'Astrophoto à la coupole', 'astrophoto-a-la-coupole', 'Les nuits d\'hiver offrent des conditions idéales pour l\'astrophotographie, comme en témoignent ces images de la nébuleuse d\'Orion et de Jupiter avec sa Grande Tache Rouge et ses satellites.', '2024-01-01 00:00:00', 0),
-(8, 'Lune', 'lune', 'Belle séance d\'observation lunaire le 20 janvier à l\'observatoire : au programme, photographies de plusieurs formations remarquables dont les cratères Boulliau (image), Clavius (image)et Platon(image).', '2024-01-01 00:00:00', 0),
-(9, 'Un dernier adieu à la Comète C2022/E3 (ZTF)', 'un-dernier-adieu-a-la-comete-c2022-e3-ztf', 'Samedi 11 février, les membres d\'Orion Astronomie du Velay ont profité d\'une excellente nuit d\'observation à l\'observatoire du Betz, à Saint-Julien-Chapteuil. Sans Lune jusqu\'à 2 heures du matin, le ciel a révélé ses merveilles : cette photo immortalise la constellation du Taureau au sud-ouest, dominée par l\'éclat de Mars et, juste en dessous, la comète arborant sa queue verticale.\r\nPassée au plus près du Soleil le 12 janvier (166 millions de km) puis de la Terre le 1er février (42 millions de km), elle file désormais à 180 000 km/h en s\'éloignant de nous. Son minuscule noyau de 1,6 km et sa luminosité faiblissante nécessiteront bientôt l\'usage d\'un télescope pour l\'apercevoir.\r\nInitialement prévue pour revenir dans 50 000 ans sur son orbite très elliptique, sa vitesse élevée suggère maintenant qu\'elle franchira l\'orbite de Neptune pour quitter à jamais le système solaire. En attendant les prochaines...', '2023-01-01 00:00:00', 0),
-(10, 'Inauguration à l’observatoire', 'inauguration-a-l-observatoire', 'Le samedi 1er octobre, le Club Orion a inauguré ses deux coupoles en présence d\'André Ferret, maire de Saint-Julien-Chapteuil, accompagné de son conseil municipal, ainsi que de Claude Mourlevat et Didier Jay, concepteurs et fabricants de la nouvelle coupole, et de Roger Issartel et Jean-Marc Delon, constructeurs de la première coupole en 1989.', '2022-01-01 00:00:00', 0),
-(11, 'Deux coupoles à l’observatoire', 'deux-coupoles-a-l-observatoire', 'Lundi 25 avril au soir, l\'observatoire du Betz a accueilli sa nouvelle coupole en aluminium, marquant un tournant pour Orion Astronomie du Velay. Cette installation moderne prendra la place de l\'ancienne coupole, fidèle au poste depuis 1989, qui bénéficiera d\'une seconde vie après rénovation sur une plateforme dédiée.\r\nLa mise en place, effectuée le 26 avril, s\'est déroulée en douceur grâce à la mobilisation des membres de l\'association et à l\'expertise minutieuse des artisans.', '2022-01-01 00:00:00', 0),
-(12, '4 saisons d’astronomie', '4-saisons-d-astronomie', 'Video', '2021-01-01 00:00:00', 0),
-(13, 'ORION activités et projets', 'orion-activites-et-projets', 'Video', '2021-01-01 00:00:00', 0),
-(14, 'Albums', 'albums', 'Galerie photographique Cliquez sur les vignettes pour découvrir nos collections : objets du système solaire, ciel profond, phénomènes atmosphériques et célestes.', '2017-01-01 00:00:00', 0);
+INSERT INTO `article` (`photo`, `article_id`, `titre`, `slug`, `contenu`, `date_publication`, `epingle`) VALUES
+('Image/ImageSite/Article/aurores-Jeanne-2-1024x558_232.jpg', 1, 'Aurores polaires', 'aurores-polaires', 'La nuit du 11 au 12 novembre nous a réservé une belle surprise : malgré un ciel partiellement couvert, nous avons réussi à capturer une superbe aurore boréale.', '2025-01-01 00:00:00', 0),
+('Image/ImageSite/Article/3X8A0077-629x1024_241.jpg', 2, 'Comète C/2025 A6 (Lemmon)', 'comete-c-2025-a6-lemmon', 'Voici deux magnifiques images de cette comète, capturées par Bernard au cours du mois d\'octobre, lorsqu\'elle était observable avec des jumelles ou un télescope.', '2025-01-01 00:00:00', 0),
+('Image/ImageSite/Article/presidents_251.jpg', 3, 'Nouveau président', 'nouveau-president', 'C\'est avec plaisir que nous vous annonçons l\'élection de Daniel Vincent à la présidence de notre Club lors de la dernière assemblée générale. Une nouvelle étape pour notre projet commun !', '2025-01-01 00:00:00', 0),
+('Image/ImageSite/Article/fete-de-la-science_260.png', 4, 'Dimanche 5 octobre', 'dimanche-5-octobre', 'Le Club Orion était présent à la Fête de la Science organisée au Musée Crozatier. L\'occasion de rappeler que curiosité, soif de découverte et intelligence sont les clés qui nous ont permis d\'atteindre nos connaissances actuelles sur les astres et l\'Univers.', '2025-01-01 00:00:00', 0),
+('Image/ImageSite/Article/Bernard-4-1024x683_270.jpg', 5, 'Eclipse de lune du 7 septembre', 'eclipse-de-lune-du-7-septembre', 'Les membres du club ont capturé de magnifiques images. (image)', '2025-01-01 00:00:00', 0),
+('Image/ImageSite/accueil/Bernard-12-1024x683_003.jpg', 6, 'Orion a fêté ses 30 ans', 'orion-a-fete-ses-30-ans', 'Ce samedi ensoleillé a rassemblé la grande famille d\'Orion : membres actuels et anciens, fidèles sympathisants et invités, pour une rencontre placée sous le signe de l\'amitié et de la convivialité. De magnifiques diaporamas ont permis de revivre les belles années passées ensemble, avant de conclure la soirée par une séance d\'observation du ciel, comme il se doit.', '2025-01-01 00:00:00', 0),
+('Image/ImageSite/accueil/2024-01-27-M42-somme-des-2-series-Raphael--340x210_297.png', 7, 'Astrophoto à la coupole', 'astrophoto-a-la-coupole', 'Les nuits d\'hiver offrent des conditions idéales pour l\'astrophotographie, comme en témoignent ces images de la nébuleuse d\'Orion et de Jupiter avec sa Grande Tache Rouge et ses satellites.', '2024-01-01 00:00:00', 0),
+('Image/ImageSite/accueil/region-Boulliau--340x210_298.png', 8, 'Lune', 'lune', 'Belle séance d\'observation lunaire le 20 janvier à l\'observatoire : au programme, photographies de plusieurs formations remarquables dont les cratères Boulliau (image), Clavius (image)et Platon(image).', '2024-01-01 00:00:00', 0),
+('Image/ImageSite/accueil/comete-en-21x297-1-340x210_299.jpg', 9, 'Un dernier adieu à la Comète C2022/E3 (ZTF)', 'un-dernier-adieu-a-la-comete-c2022-e3-ztf', 'Samedi 11 février, les membres d\'Orion Astronomie du Velay ont profité d\'une excellente nuit d\'observation à l\'observatoire du Betz, à Saint-Julien-Chapteuil. Sans Lune jusqu\'à 2 heures du matin, le ciel a révélé ses merveilles : cette photo immortalise la constellation du Taureau au sud-ouest, dominée par l\'éclat de Mars et, juste en dessous, la comète arborant sa queue verticale.\r\nPassée au plus près du Soleil le 12 janvier (166 millions de km) puis de la Terre le 1er février (42 millions de km), elle file désormais à 180 000 km/h en s\'éloignant de nous. Son minuscule noyau de 1,6 km et sa luminosité faiblissante nécessiteront bientôt l\'usage d\'un télescope pour l\'apercevoir.\r\nInitialement prévue pour revenir dans 50 000 ans sur son orbite très elliptique, sa vitesse élevée suggère maintenant qu\'elle franchira l\'orbite de Neptune pour quitter à jamais le système solaire. En attendant les prochaines...', '2023-01-01 00:00:00', 0),
+('Image/ImageSite/accueil/A-Marie-Rose-5-340x210_300.jpg', 10, 'Inauguration à l’observatoire', 'inauguration-a-l-observatoire', 'Le samedi 1er octobre, le Club Orion a inauguré ses deux coupoles en présence d\'André Ferret, maire de Saint-Julien-Chapteuil, accompagné de son conseil municipal, ainsi que de Claude Mourlevat et Didier Jay, concepteurs et fabricants de la nouvelle coupole, et de Roger Issartel et Jean-Marc Delon, constructeurs de la première coupole en 1989.', '2022-01-01 00:00:00', 0),
+('Image/ImageSite/Article/11-340x210.jpg', 11, 'Deux coupoles à l’observatoire', 'deux-coupoles-a-l-observatoire', 'Lundi 25 avril au soir, l\'observatoire du Betz a accueilli sa nouvelle coupole en aluminium, marquant un tournant pour Orion Astronomie du Velay. Cette installation moderne prendra la place de l\'ancienne coupole, fidèle au poste depuis 1989, qui bénéficiera d\'une seconde vie après rénovation sur une plateforme dédiée.\r\nLa mise en place, effectuée le 26 avril, s\'est déroulée en douceur grâce à la mobilisation des membres de l\'association et à l\'expertise minutieuse des artisans.', '2022-01-01 00:00:00', 0),
+('https://www.youtube.com/embed/ZyOKhq-39-g', 12, '4 saisons d’astronomie', '4-saisons-d-astronomie', 'Video', '2021-01-01 00:00:00', 0),
+('https://www.youtube.com/embed/-rdgwq-jmHo', 13, 'ORION activités et projets', 'orion-activites-et-projets', 'Video', '2021-01-01 00:00:00', 0),
+('Image/ImageSite/Article/PB260021_vignette-1-300x216_204.jpg', 14, 'Albums', 'albums', 'Galerie photographique Cliquez sur les vignettes pour découvrir nos collections : objets du système solaire, ciel profond, phénomènes atmosphériques et célestes.', '2017-01-01 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -683,6 +684,13 @@ CREATE TABLE `reservation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
+-- Déchargement des données de la table `reservation`
+--
+
+INSERT INTO `reservation` (`reservation_id`, `nom`, `email`, `telephone`, `nb_places`, `date_reservation`, `evenement_id`) VALUES
+(1, 'TomTest', 'TomQuiTest@test.test', '06 06 06 06 06', 2, '2026-01-18 21:01:03', 1);
+
+--
 -- Index pour les tables déchargées
 --
 
@@ -754,7 +762,7 @@ ALTER TABLE `categorie_photo`
 -- AUTO_INCREMENT pour la table `evenement`
 --
 ALTER TABLE `evenement`
-  MODIFY `evenement_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `evenement_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `photo`
@@ -766,7 +774,7 @@ ALTER TABLE `photo`
 -- AUTO_INCREMENT pour la table `reservation`
 --
 ALTER TABLE `reservation`
-  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `reservation_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Contraintes pour les tables déchargées

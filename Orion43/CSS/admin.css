@@ -133,6 +133,17 @@ h3 {
     transition: all 0.3s;
 }
 
+/* Style pour les options du select */
+.form-group select option {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 10px;
+}
+
+.form-group select option:hover {
+    background: #2d3561;
+}
+
 .form-group textarea {
     min-height: 100px;
     resize: vertical;
