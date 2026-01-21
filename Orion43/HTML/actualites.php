@@ -78,7 +78,6 @@ $articles = $pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
     <header class="header-img SG">
         <h1>Nos dernières actualités</h1>
     </header>
-    <!-- le php a etai fais avec le code du site web le lac des cigne que j'ai fais l'année dernier et l'aide du proge et forome de programation-->
     <main class="actualites-section">
         <!-- Filtres et tri -->
         <div class="actualites-filters">
@@ -98,7 +97,7 @@ $articles = $pdo->query($query)->fetchAll(PDO::FETCH_ASSOC);
                 </a>
             </div>
         </div>
-
+<!-- le php a etai fais avec le code du site web le lac des cigne que j'ai fais l'année dernier et l'aide du proge et forome de programation-->
         <div class="actualites-grid">
             <?php foreach($articles as $article): ?>
             <article class="actualite-card">
